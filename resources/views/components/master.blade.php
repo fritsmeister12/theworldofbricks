@@ -14,6 +14,7 @@
     @include('components.navbar')
     @yield('content')
     {{-- @include('components.highlights') --}}
+    @include('components.message')
     @include('components.footer')
 </body>
 

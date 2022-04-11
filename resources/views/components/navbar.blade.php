@@ -385,7 +385,7 @@
                                     class="text-sm font-medium text-gray-700 dark:text-white hover:text-gray-800">Mijn
                                     account</a>
                                 <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
-                                <a href="{{ route('register') }}"
+                                <a href="{{ route('logout') }}"
                                     class="text-sm font-medium text-gray-700 dark:text-white hover:text-gray-800">Log
                                     uit</a>
                             </div>

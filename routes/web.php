@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Routing\Route as RoutingRoute;
@@ -37,10 +38,13 @@ Route::get('/contact', function () {
 // End Pages >-----------------<
 
 // Auth
-Route::get('/register', [RegisterController::class, 'index'])->name('register');
-Route::post('/register', [RegisterController::class, 'store']);
+Route::get('/aanmelden', [RegisterController::class, 'index'])->name('register');
+Route::post('/aanmelden', [RegisterController::class, 'store']);
 
-Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::get('/log-in', [LoginController::class, 'index'])->name('login');
+Route::post('/log-in', [LoginController::class, 'store']);
+
+Route::get('/log-uit', [LogoutController::class, 'index'])->name('logout');
 // End Auth
 
 // Profile
