@@ -1,36 +1,7 @@
 @extends('components.master')
 
 @section('content')
-    <div class="mx-auto container px-6 mt-6 dark:text-white">
-
-        <div class="row">
-            <div class="col-lg-12 margin-tb">
-                <div class="pull-left">
-                    <h2 class="bg-gray-700"> Show Product</h2>
-                </div>
-                {{-- @dd($product) --}}
-                <div class="pull-right">
-                    <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Title:</strong>
-                    {{ $product->name }}
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Description:</strong>
-                    {{ $product->description }}
-                </div>
-            </div>
-        </div>
-
-
+    <div class="mx-auto container px-6 dark:text-white">
         <div class="py-14">
             <div class="flex justify-start item-start space-y-2 flex-col">
                 <h1 class="text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-gray-800">Order

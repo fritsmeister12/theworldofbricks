@@ -8,10 +8,10 @@
             <div class="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
                 <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:static">
                     <div class="sm:max-w-lg">
-                        <h1 class="text-4xl font font-extrabold tracking-tight text-white sm:text-6xl">Summer styles are
-                            finally here</h1>
-                        <p class="mt-4 text-xl text-white">This year, our new summer collection will shelter you from the
-                            harsh elements of a world that doesn't care if you live or die.</p>
+                        <h1 class="text-4xl font font-extrabold tracking-tight text-white sm:text-6xl">Al jouw favoriete
+                            Lego sets</h1>
+                        <p class="mt-4 text-xl text-white">De platform om de leukste sets maandelijks te ontvangen. Met meer
+                            dan 100+ Lego sets in ons assortiment.</p>
                     </div>
                     <div>
                         <div class="mt-10">
@@ -59,19 +59,59 @@
                                 </div>
                             </div>
 
-                            <a href="#"
-                                class="inline-block text-center bg-yellow-500 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-indigo-700">Shop
-                                Collection</a>
+                            <a href="{{ route('products.index') }}"
+                                class="inline-block text-center bg-yellow-500 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-indigo-700">Bekijk
+                                de sets</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="grid grid-cols-3 gap-8 mt-16">
+
+        <div class="container mx-auto md:py-16 px-4 md:px-6">
+            <div
+                class="flex items-strech justify-center flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 lg:space-x-8">
+                <div
+                    class="flex flex-col md:flex-row items-strech rounded justify-between bg-gray-50 dark:bg-slate-700 py-6 px-6 md:py-12 lg:px-12 md:w-8/12 lg:w-7/12 xl:w-8/12 2xl:w-9/12">
+                    <div class="flex flex-col justify-center md:w-1/2">
+                        <h1 class="text-3xl lg:text-4xl font-semibold text-gray-800 dark:text-white">Welcome Deal</h1>
+                        <p class="text-base lg:text-xl text-gray-800 dark:text-white mt-2">Meld je nu aan voor <span
+                                class="font-bold">30%</span> korting op je eerste 3 maanden</p>
+                    </div>
+                    <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center md:justify-end">
+                        <img src="https://i.ibb.co/J2BtZdg/Rectangle-56-1.png" alt="" class="" />
+                    </div>
+                </div>
+                <div
+                    class="md:w-4/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 rounded bg-gray-50 dark:bg-slate-700 py-6 px-6 md:py-0 md:px-4 lg:px-6 flex flex-col justify-center relative">
+                    <div class="flex flex-col justify-center">
+                        <h1 class="text-3xl lg:text-4xl font-semibold text-gray-800 dark:text-white">Nieuwsbrief</h1>
+                        <p class="text-base lg:text-xl text-gray-800 dark:text-white">Meld je nu aan voor onze <span
+                                class="font-bold">nieuwsbrief</span></p>
+                    </div>
+                    <div class="flex justify-end md:absolute md:bottom-4 md:right-4 lg:bottom-0 lg:right-0">
+                        <img src="https://i.ibb.co/rGfP7mp/Rectangle-59-1.png" alt=""
+                            class="md:w-20 md:h-20 lg:w-full lg:h-full" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="px-4 md:px-6 2xl:px-0 2xl:mx-auto 2xl:container flex justify-center items-center">
+            <div class="flex justify-between items-center w-full">
+                <div class="flex flex-col justify-start items-start">
+                    <p class="text-sm leading-none text-gray-600 dark:text-gray-300">Lego - Exclusief</p>
+                    <div class="mt-2 flex flex-row justify-end items-center space-x-3">
+                        <p class="text-2xl font-semibold leading-normal text-gray-800 dark:text-white">Legosets</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-3 gap-8 mt-8 container mx-auto px-4 md:px-6">
             @foreach ($data as $key => $product)
                 @if ($product->available == true and $product->category == 'Expert')
-                    <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
+                    <div tabindex="0" class="focus:outline-none  w-72 xl:mb-0 mb-8">
                         <div>
                             <img alt="person capturing an image"
                                 src="{{ url('http://back-lego.test/storage/images/products/' . $product->image_thumbnail) }}"

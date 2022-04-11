@@ -8,11 +8,13 @@ use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
 {
-
-    public function show(Request $request, $id)
+    public function index(Request $request)
     {
+        $this->validate($request, [
+            'product_id' => 'required',
+        ]);
 
-        $product = Product::find($id);
+        $product = Product::find($request->product_id);
 
         return view('checkout.show', compact('product'));
     }

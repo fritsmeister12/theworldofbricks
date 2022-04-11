@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -50,4 +51,4 @@ Route::get('/log-uit', [LogoutController::class, 'index'])->name('logout');
 // Profile
 Route::get('/profiel', [ProfileController::class, 'index'])->name('profile')->middleware('auth');
 
-Route::get('/checkout/{id}', 'CheckoutController@show')->name('order');
+Route::post('/afrekenen', [CheckoutController::class, 'index'])->name('order')->middleware('auth');
