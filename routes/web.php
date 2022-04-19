@@ -46,8 +46,8 @@ Route::get('/log-uit', [LogoutController::class, 'index'])->name('logout');
 
 // Payment
 Route::get('/prijzen', 'SubscriptionController@index')->name('prijzen');
-Route::post('/checkout', 'SubscriptionController@checkout')->name('checkout')->middleware('auth');
-Route::get('/succes', 'SubscriptionController@succes')->name('succes')->middleware('auth');
+Route::post('/checkout', 'SubscriptionController@checkout')->name('checkout');
+Route::get('/succes', 'SubscriptionController@succes')->name('succes');
 
 Route::get('/annuleren', function () {
     return view('subscriptions.cancel');

@@ -6,7 +6,7 @@
         <!-- This example requires Tailwind CSS v2.0+ -->
         <div class="relative overflow-hidden">
             <div class="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
-                <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:static">
+                <div class="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8 sm:static">
                     <div class="sm:max-w-lg">
                         <h1 class="text-4xl font font-extrabold tracking-tight text-white sm:text-6xl">Al jouw favoriete
                             Lego sets</h1>
@@ -69,7 +69,7 @@
         </div>
 
 
-        <div class="container mx-auto md:py-16 px-4 md:px-6">
+        <div class="container mx-auto md:py-16 pl-4 md:pl-6">
             <div
                 class="flex items-strech justify-center flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 lg:space-x-8">
                 <div
@@ -87,7 +87,7 @@
                     class="md:w-4/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 rounded bg-gray-50 dark:bg-slate-700 py-6 px-6 md:py-0 md:px-4 lg:px-6 flex flex-col justify-center relative">
                     <div class="flex flex-col justify-center">
                         <h1 class="text-3xl lg:text-4xl font-semibold text-gray-800 dark:text-white">Nieuwsbrief</h1>
-                        <p class="text-base lg:text-xl text-gray-800 dark:text-white">Meld je nu aan voor onze <span
+                        <p class="text-base lg:text-xl w-48 text-gray-800 dark:text-white">Meld je nu aan voor onze <span
                                 class="font-bold">nieuwsbrief</span></p>
                     </div>
                     <div class="flex justify-end md:absolute md:bottom-4 md:right-4 lg:bottom-0 lg:right-0">
@@ -123,7 +123,7 @@
                                     <h2 tabindex="0" class="focus:outline-none text-lg dark:text-white font-semibold">
                                         {{ $product->name }}
                                     </h2>
-                                    <div class="bg-yellow-500 py-1.5 ml-5 px-6 rounded-full">
+                                    <div class="bg-yellow-500 py-1.5 ml-5 px-4 rounded">
                                         <p tabindex="0" class="focus:outline-none text-xs text-gray-700">Exclusive</p>
                                     </div>
 
@@ -133,12 +133,12 @@
                                 <div class="flex mt-4">
                                     <div>
                                         <p tabindex="0"
-                                            class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 px-2 bg-gray-200 dark:bg-slate-600 py-1">
+                                            class="focus:outline-none text-xs text-gray-600 rounded dark:text-gray-200 px-2 bg-gray-200 dark:bg-slate-600 py-1">
                                             {{ $product->category }}</p>
                                     </div>
                                     <div class="pl-2">
                                         <p tabindex="0"
-                                            class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 px-2 bg-gray-200 dark:bg-slate-600 py-1">
+                                            class="focus:outline-none text-xs text-gray-600 rounded dark:text-gray-200 px-2 bg-gray-200 dark:bg-slate-600 py-1">
                                             {{ $product->bricks_amount }} Blokjes</p>
                                     </div>
                                 </div>

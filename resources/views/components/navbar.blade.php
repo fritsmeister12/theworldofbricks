@@ -96,7 +96,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
     <!-- For small screen -->
     <div id="mobile-menu"
         class="hidden absolute dark:bg-gray-900 z-10 inset-0 md:hidden bg-white flex flex-col h-screen w-full">
@@ -224,54 +224,14 @@
     };
 </script>
 
-<!--
-  This example requires Tailwind CSS v2.0+
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
--->
 <div class="bg-white dark:bg-gray-500">
-    <!--
-      Mobile menu
-  
-      Off-canvas menu for mobile, show/hide based on off-canvas menu state.
-    -->
-    <div class="fixed inset-0 flex z-40 lg:hidden" role="dialog" aria-modal="true">
-        <!--
-        Off-canvas menu overlay, show/hide based on off-canvas menu state.
-  
-        Entering: "transition-opacity ease-linear duration-300"
-          From: "opacity-0"
-          To: "opacity-100"
-        Leaving: "transition-opacity ease-linear duration-300"
-          From: "opacity-100"
-          To: "opacity-0"
-      -->
-        <div class="fixed inset-0 bg-black bg-opacity-25" aria-hidden="true"></div>
+    <div class="fixed inset-0 flex z-40 hidden" id="mobile-menu">
+        <div class="fixed inset-0 bg-black bg-opacity-25 " aria-hidden="true"></div>
 
-        <!--
-        Off-canvas menu, show/hide based on off-canvas menu state.
-  
-        Entering: "transition ease-in-out duration-300 transform"
-          From: "-translate-x-full"
-          To: "translate-x-0"
-        Leaving: "transition ease-in-out duration-300 transform"
-          From: "translate-x-0"
-          To: "-translate-x-full"
-      -->
         <div class="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
             <div class="px-4 pt-5 pb-2 flex">
-                <button type="button" class="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400">
+                <button type="button" class="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
+                    onclick="closeMenu()">
                     <span class="sr-only">Close menu</span>
                     <!-- Heroicon name: outline/x -->
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -291,7 +251,6 @@
                             class="text-gray-900 border-transparent flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium"
                             aria-controls="tabs-1-panel-1" role="tab" type="button">Women</button>
 
-                        <!-- Selected: "text-indigo-600 border-indigo-600", Not Selected: "text-gray-900 border-transparent" -->
                         <button id="tabs-1-tab-2"
                             class="text-gray-900 border-transparent flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium"
                             aria-controls="tabs-1-panel-2" role="tab" type="button">Men</button>
@@ -301,21 +260,45 @@
 
             <div class="border-t border-gray-200 py-6 px-4 space-y-6">
                 <div class="flow-root">
-                    <a href="#" class="-m-2 p-2 block font-medium text-gray-900">Company</a>
+                    <a href="{{ route('home') }}" class="-m-2 p-2 block font-medium text-gray-900">Home</a>
                 </div>
 
                 <div class="flow-root">
-                    <a href="#" class="-m-2 p-2 block font-medium text-gray-900">Stores</a>
+                    <a href="{{ route('products.index') }}"
+                        class="-m-2 p-2 block font-medium text-gray-900">Producten</a>
+                </div>
+
+                <div class="flow-root">
+                    <a href="{{ route('prijzen') }}" class="-m-2 p-2 block font-medium text-gray-900">Prijzen</a>
+                </div>
+
+                <div class="flow-root">
+                    <a href="{{ route('over-ons') }}" class="-m-2 p-2 block font-medium text-gray-900">Over Ons</a>
+                </div>
+
+                <div class="flow-root">
+                    <a href="{{ route('contact') }}" class="-m-2 p-2 block font-medium text-gray-900">Contact</a>
                 </div>
             </div>
 
             <div class="border-t border-gray-200 py-6 px-4 space-y-6">
-                <div class="flow-root">
-                    <a href="#" class="-m-2 p-2 block font-medium text-gray-900">Sign in</a>
-                </div>
-                <div class="flow-root">
-                    <a href="#" class="-m-2 p-2 block font-medium text-gray-900">Create account</a>
-                </div>
+                @auth
+                    <div class="flow-root">
+                        <a href="{{ route('profile') }}" class="-m-2 p-2 block font-medium text-gray-900">Mijn account</a>
+                    </div>
+                    <div class="flow-root">
+                        <a href="{{ route('logout') }}" class="-m-2 p-2 block font-medium text-gray-900">Log uit</a>
+                    </div>
+                @endauth
+                @guest
+                    <div class="flow-root">
+                        <a href="{{ route('login') }}" class="-m-2 p-2 block font-medium text-gray-900">Log in</a>
+                    </div>
+                    <div class="flow-root">
+                        <a href="{{ route('register') }}" class="-m-2 p-2 block font-medium text-gray-900">Maak een
+                            account</a>
+                    </div>
+                @endguest
             </div>
 
             <div class="border-t border-gray-200 py-6 px-4">
@@ -338,7 +321,7 @@
             <div class="border-b border-gray-200 dark:border-yellow-500">
                 <div class="h-16 flex items-center">
                     <!-- Mobile menu toggle, controls the 'mobileMenuOpen' state. -->
-                    <button type="button" class="bg-white p-2 rounded-md text-gray-400 lg:hidden">
+                    <button type="button" class=" p-2 rounded-md text-white lg:hidden" onclick="openMenu()">
                         <span class="sr-only">Open menu</span>
                         <!-- Heroicon name: outline/menu -->
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
