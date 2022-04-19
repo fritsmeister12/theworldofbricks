@@ -29,8 +29,15 @@
                 </div>
                 <p class="md:w-80 text-base leading-6 mt-4 text-gray-600 dark:text-gray-200">Full access to all features and
                     no credit card required</p>
+                <form action="{{ route('checkout') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="plan" value="price_1Ko4hLBCYBZIkEQTSUQEAimK">
+                    <button id="checkout-and-portal-button"
+                        class="bg-yellow-500  text-base leading-none text-white rounded py-4 mt-4 px-4"
+                        type="submit">Checkout</button>
+                </form>
             </div>
-            <div role="listitem" class="bg-white dark:bg-gray-600 cursor-pointer shadow rounded-lg mt-3 flex relative z-30">
+            <div role="listitem" class="bg-white dark:bg-gray-600 shadow rounded-lg mt-3 flex relative z-30">
                 <div class="w-2.5 h-auto bg-yellow-500 rounded-tl-md rounded-bl-md"></div>
                 <div class="w-full p-8">
                     <div class="md:flex items-center justify-between">
@@ -40,6 +47,13 @@
                     </div>
                     <p class="md:w-80 text-base leading-6 mt-4 text-gray-600 dark:text-gray-200">Unlimited products features
                         and dedicated support channels</p>
+                    <form action="{{ route('checkout') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="plan" value="price_1Ko4heBCYBZIkEQTanBuV5Ja">
+                        <button id="checkout-and-portal-button"
+                            class="bg-yellow-500  text-base leading-none text-white rounded py-4 mt-4 px-4"
+                            type="submit">Checkout</button>
+                    </form>
                 </div>
             </div>
             <div role="listitem" class="bg-white dark:bg-gray-700 cursor-pointer shadow rounded-lg p-8 relative z-30 mt-7">
@@ -50,6 +64,13 @@
                 </div>
                 <p class="md:w-80 text-base leading-6 mt-4 text-gray-600 dark:text-gray-200">Unlimited products features and
                     dedicated support channels</p>
+                <form action="{{ route('checkout') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="plan" value="price_1Ko4hoBCYBZIkEQTvIuQlFVM">
+                    <button id="checkout-and-portal-button"
+                        class="bg-yellow-500  text-base leading-none text-white rounded py-4 mt-4 px-4"
+                        type="submit">Checkout</button>
+                </form>
             </div>
         </div>
     </div>

@@ -25,10 +25,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::resource('products', ProductController::class);
 
 // Pages >-----------------<
-Route::get('/prijzen', function () {
-    return view('pages.pricing');
-})->name('prijzen');
-
 Route::get('/over-ons', function () {
     return view('pages.about-us');
 })->name('over-ons');
@@ -47,6 +43,16 @@ Route::post('/log-in', [LoginController::class, 'store']);
 
 Route::get('/log-uit', [LogoutController::class, 'index'])->name('logout');
 // End Auth
+
+// Payment
+Route::get('/prijzen', 'SubscriptionController@index')->name('prijzen');
+Route::post('/checkout', 'SubscriptionController@checkout')->name('checkout')->middleware('auth');
+Route::get('/succes', 'SubscriptionController@succes')->name('succes')->middleware('auth');
+
+Route::get('/annuleren', function () {
+    return view('subscriptions.cancel');
+})->name('annuleren');
+// 
 
 // Profile
 Route::get('/profiel', [ProfileController::class, 'index'])->name('profile')->middleware('auth');

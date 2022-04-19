@@ -16,6 +16,7 @@
     {{-- @include('components.highlights') --}}
     @include('components.message')
     @include('components.footer')
+    @yield('scripts')
 </body>
 
 </html>
