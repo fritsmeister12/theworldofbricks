@@ -5,7 +5,11 @@ module.exports = {
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    colors: {
+      'lego-geel': '#ffcf00',
+      'lego-rood': '#d01012',
+      'lego-paars': '#201d48',
+    }
   },
   plugins: [],
 }

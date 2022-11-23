@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
+
+
     public function index()
     {
         $data = DB::table('products')
@@ -14,6 +16,8 @@ class HomeController extends Controller
             ->groupByRaw('name, description, bricks_amount, price, image_thumbnail, available, category')
             ->havingRaw('count(*) >= 1')
             ->get();
+
+        // $data = DB::select('select * from products where available = 1');
 
         return view('index', compact('data'))
             ->with('i', (request()->input('page', 1) - 1) * 5);

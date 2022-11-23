@@ -1,213 +1,3 @@
-{{-- <div class="relative shadow-lg">
-    <!-- For md screen size -->
-    <div id="md-searchbar" class="bg-white dark:bg-gray-900 hidden lg:hidden py-5 px-6 items-center justify-between">
-        <div class="flex items-center space-x-3 text-gray-800 dark:text-white">
-            <div>
-                <img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg2.svg"
-                    alt="search">
-                <img class="dark:block hidden"
-                    src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg2dark.svg" alt="search">
-            </div>
-            <input type="text" placeholder="Search for products"
-                class="text-sm leading-none dark:text-gray-300 dark:bg-gray-900 text-gray-600 focus:outline-none" />
-        </div>
-        <div class="space-x-6">
-            <button aria-label="go to cart"
-                class="text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-800">
-                <img class="w-5 dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg4.svg"
-                    alt="bag">
-                <img class="w-5 dark:block hidden"
-                    src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg4dark.svg" alt="bag">
-            </button>
-        </div>
-    </div>
-    <!-- For md screen size -->
-
-    <!-- For large screens -->
-    <div class="dark:bg-gray-900 bg-gray-50 px-6 py-9">
-        <div class="container mx-auto flex items-center justify-between">
-            <h1 class="md:w-2/12 cursor-pointer font-bold text-gray-800 dark:text-yellow-500" aria-label="the Crib.">
-                <span class="dark:text-white text-yellow-500">The World of </span>Bricks
-            </h1>
-            <ul class="hidden w-8/12 md:flex items-center justify-center space-x-8">
-                <li>
-                    <a href="javascript:void(0)"
-                        class="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">Home</a>
-                </li>
-
-                <li>
-                    <a href="{{ route('products.index') }}"
-                        class="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">Producten</a>
-                </li>
-
-                <li>
-                    <a href="javascript:void(0)"
-                        class="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">Prijzen</a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"
-                        class="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">Over
-                        Ons</a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"
-                        class="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">Contact</a>
-                </li>
-            </ul>
-
-            <div class="md:w-2/12 justify-end flex items-center space-x-4 xl:space-x-8">
-                <div class="hidden lg:flex items-center">
-                    <button onclick="toggleSearch()" aria-label="search items"
-                        class="w-5 text-gray-800 dark:hover:text-gray-300 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-800">
-                        <img class="transform rotate-90 dark:hidden"
-                            src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg2.svg" alt="search">
-                        <img class="transform rotate-90 dark:block hidden"
-                            src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg2dark.svg" alt="search">
-                    </button>
-                    <input id="searchInput" type="text" placeholder="search"
-                        class="hidden text-sm dark:bg-white dark:placeholder-gray-300 text-gray-600 rounded ml-1 border border-transparent focus:outline-none focus:border-gray-400 px-1" />
-                </div>
-                <div class="hidden lg:flex items-center space-x-4 xl:space-x-8">
-                    <button aria-label="go to cart"
-                        class="w-6 text-gray-800 dark:hover:text-gray-300 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-800">
-                        <img class=" dark:hidden"
-                            src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg4.svg" alt="bag">
-                        <img class=" dark:block hidden"
-                            src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg4dark.svg" alt="bag">
-                    </button>
-                </div>
-
-                <div class="flex lg:hidden">
-                    <button aria-label="show options" onclick="mdOptionsToggle()"
-                        class="text-black dark:text-white dark:hover:text-gray-300 hidden md:flex focus:outline-none focus:ring-2 rounded focus:ring-gray-600">
-                        <img class=" dark:hidden"
-                            src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg5.svg" alt="toggler">
-                        <img class=" dark:block hidden"
-                            src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg5dark.svg" alt="toggler">
-                    </button>
-
-                    <button aria-label="open menu" onclick="openMenu()"
-                        class="text-black dark:text-white dark:hover:text-gray-300 md:hidden focus:outline-none focus:ring-2 rounded focus:ring-gray-600">
-                        <img class=" dark:hidden"
-                            src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg5.svg" alt="toggler">
-                        <img class=" dark:block hidden"
-                            src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg5dark.svg" alt="toggler">
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div> 
-    <!-- For small screen -->
-    <div id="mobile-menu"
-        class="hidden absolute dark:bg-gray-900 z-10 inset-0 md:hidden bg-white flex flex-col h-screen w-full">
-        <div class="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-4 p-4">
-            <div class="flex items-center space-x-3">
-                <div>
-                    <img class="dark:hidden"
-                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg2.svg" alt="search">
-                    <img class="dark:block hidden"
-                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg2dark.svg" alt="search">
-                </div>
-                <input type="text" placeholder="Search for products"
-                    class="text-sm dark:bg-gray-900 text-gray-600 placeholder-gray-600 dark:placeholder-gray-300 focus:outline-none" />
-            </div>
-
-            <button onclick="closeMenu()" aria-label="close menu"
-                class="focus:outline-none focus:ring-2 rounded focus:ring-gray-600">
-                <img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg6.svg"
-                    alt="cross">
-                <img class="dark:block hidden"
-                    src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg6dark.svg" alt="cross">
-            </button>
-        </div>
-        <div class="mt-6 p-4">
-            <ul class="flex flex-col space-y-6">
-                <li>
-                    <a href="javascript:void(0)"
-                        class="dark:text-white flex items-center justify-between hover:underline text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800">
-                        Home
-                        <div>
-                            <img class="dark:hidden"
-                                src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg7.svg" alt="arrow">
-                            <img class="dark:block hidden"
-                                src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg7dark.svg"
-                                alt="arrow">
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"
-                        class="dark:text-white flex items-center justify-between hover:underline text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800">
-                        Furniture
-                        <div>
-                            <img class="dark:hidden"
-                                src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg7.svg" alt="arrow">
-                            <img class="dark:block hidden"
-                                src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg7dark.svg"
-                                alt="arrow">
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"
-                        class="dark:text-white flex items-center justify-between hover:underline text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800">
-                        Lookbook
-                        <div>
-                            <img class="dark:hidden"
-                                src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg7.svg" alt="arrow">
-                            <img class="dark:block hidden"
-                                src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg7dark.svg"
-                                alt="arrow">
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"
-                        class="dark:text-white flex items-center justify-between hover:underline text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800">
-                        Support
-                        <div>
-                            <img class="dark:hidden"
-                                src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg7.svg" alt="arrow">
-                            <img class="dark:block hidden"
-                                src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg7dark.svg"
-                                alt="arrow">
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="h-full flex items-end">
-            <ul class="flex flex-col space-y-8 bg-gray-50 w-full py-10 p-4 dark:bg-gray-800">
-                <li>
-                    <a href="javascript:void(0)"
-                        class="dark:text-white text-gray-800 flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
-                        <div>
-                            <img class="w-5 dark:hidden"
-                                src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg4.svg" alt="bag">
-                            <img class="w-5 dark:block hidden"
-                                src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg4dark.svg" alt="bag">
-                        </div>
-                        <p class="text-base">Cart</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"
-                        class="dark:text-white text-gray-800 flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
-                        <div>
-                            <img class="w-5 dark:hidden"
-                                src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg3.svg"
-                                alt="favourites">
-                            <img class="w-5 dark:block hidden"
-                                src="https://tuk-cdn.s3.amazonaws.com/can-uploader/navigation-I-svg3dark.svg"
-                                alt="favourites">
-                        </div>
-                        <p class="text-base">Wishlist</p>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div> --}}
 <script>
     const toggleSearch = () => {
         document.getElementById("searchInput").classList.toggle("hidden");
@@ -224,200 +14,127 @@
     };
 </script>
 
-<div class="bg-white dark:bg-gray-500">
-    <div class="fixed inset-0 flex z-40 hidden" id="mobile-menu">
-        <div class="fixed inset-0 bg-black bg-opacity-25 " aria-hidden="true"></div>
+{{-- New Navbar --}}
+<div class="top-0 shadow-md fixed w-full" style="z-index: 100; background-color: #FFCF00">
+    <p class="h-10 flex items-center justify-center text-sm  font-light text-white px-4 sm:px-6 lg:px-8"
+        style="background-color: #201D48">
+        Get free delivery on orders over $100</p>
+    <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+        <div class="relative flex grid items-center grid-cols-2 lg:grid-cols-3">
+            <ul class="flex items-center hidden space-x-8 lg:flex">
+                <li><a href="{{ route('verkoop.index') }}" aria-label="Our product" title="Our product"
+                        class="font-medium uppercase tracking-wide text-black transition-colors duration-200 hover:text-teal-accent-400">Producten</a>
+                </li>
+                <li><a href="{{ route('over-ons') }}" aria-label="Our product" title="Our product"
+                        class="font-medium uppercase tracking-wide text-black transition-colors duration-200 hover:text-teal-accent-400">Over
+                        Ons</a>
+                </li>
+                <li><a href="{{ route('contact') }}" aria-label="Product pricing" title="Product pricing"
+                        class="font-medium uppercase tracking-wide text-black transition-colors duration-200 hover:text-teal-accent-400">Contact</a>
+                </li>
+            </ul>
+            <a href="{{ route('home') }}" aria-label="Company" title="Company"
+                class="inline-flex items-center lg:mx-auto">
+                <svg class="w-8 text-red-600" viewBox="0 0 24 24" stroke-linejoin="round" stroke-width="2"
+                    stroke-linecap="round" stroke-miterlimit="10" stroke="currentColor" fill="none">
+                    <rect x="3" y="1" width="7" height="12"></rect>
+                    <rect x="3" y="17" width="7" height="6"></rect>
+                    <rect x="14" y="1" width="7" height="6"></rect>
+                    <rect x="14" y="11" width="7" height="12"></rect>
+                </svg>
+                <span class="ml-2 text-xl font-bold tracking-wide text-black uppercase">The World of Bricks</span>
+            </a>
+            @auth
+                <ul class="flex items-center hidden ml-auto space-x-8 lg:flex">
+                    <li><a href="{{ route('profile') }}" aria-label="Sign in" title="Sign in"
+                            class="font-medium tracking-wide text-black transition-colors duration-200 hover:text-teal-accent-400">Profiel
+                        </a></li>
+                    <li>
+                        <a href="{{ route('logout') }}"
+                            class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md focus:shadow-outline focus:outline-none"
+                            style="background-color: #d01012" aria-label="Sign up" title="Sign up">
+                            Log uit
+                        </a>
+                    </li>
+                </ul>
+            @endauth
+            @guest
+                <ul class="flex items-center hidden ml-auto space-x-8 lg:flex">
+                    <li><a href="{{ route('login') }}" aria-label="Sign in" title="Sign in"
+                            class="font-medium tracking-wide text-black transition-colors duration-200 hover:text-teal-accent-400">Log
+                            in
+                        </a></li>
+                    <li>
+                        <a href="{{ route('register') }}"
+                            class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md focus:shadow-outline focus:outline-none"
+                            style="background-color: #d01012" aria-label="Sign up" title="Sign up">
+                            Aanmelden
+                        </a>
+                    </li>
+                </ul>
+            @endguest
 
-        <div class="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
-            <div class="px-4 pt-5 pb-2 flex">
-                <button type="button" class="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
-                    onclick="closeMenu()">
-                    <span class="sr-only">Close menu</span>
-                    <!-- Heroicon name: outline/x -->
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M6 18L18 6M6 6l12 12" />
+            <!-- Mobile menu -->
+            <div class="ml-auto lg:hidden">
+                <button aria-label="Open Menu" title="Open Menu"
+                    class="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline">
+                    <svg class="w-5 text-gray-600" viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"></path>
+                        <path fill="currentColor" d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z">
+                        </path>
+                        <path fill="currentColor"
+                            d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"></path>
                     </svg>
                 </button>
+                <!-- Mobile menu dropdown
+          <div class="absolute top-0 left-0 w-full">
+            <div class="p-5 bg-white border rounded shadow-sm">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <a href="/" aria-label="Company" title="Company" class="inline-flex items-center">
+                    <svg class="w-8 text-deep-purple-accent-400" viewBox="0 0 24 24" stroke-linejoin="round" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" stroke="currentColor" fill="none">
+                      <rect x="3" y="1" width="7" height="12"></rect>
+                      <rect x="3" y="17" width="7" height="6"></rect>
+                      <rect x="14" y="1" width="7" height="6"></rect>
+                      <rect x="14" y="11" width="7" height="12"></rect>
+                    </svg>
+                    <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">Company</span>
+                  </a>
+                </div>
+                <div>
+                  <button aria-label="Close Menu" title="Close Menu" class="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                    <svg class="w-5 text-gray-600" viewBox="0 0 24 24">
+                      <path
+                        fill="currentColor"
+                        d="M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <nav>
+                <ul class="space-y-4">
+                  <li><a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Product</a></li>
+                  <li><a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Features</a></li>
+                  <li><a href="/" aria-label="Product pricing" title="Product pricing" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Pricing</a></li>
+                  <li><a href="/" aria-label="Sign in" title="Sign in" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Sign in</a></li>
+                  <li>
+                    <a
+                      href="/"
+                      class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                      aria-label="Sign up"
+                      title="Sign up"
+                    >
+                      Sign up
+                    </a>
+                  </li>
+                </ul>
+              </nav>
             </div>
-
-            <!-- Links -->
-            <div class="mt-2">
-                <div class="border-b border-gray-200">
-                    <div class="-mb-px flex px-4 space-x-8" aria-orientation="horizontal" role="tablist">
-                        <!-- Selected: "text-indigo-600 border-indigo-600", Not Selected: "text-gray-900 border-transparent" -->
-                        <button id="tabs-1-tab-1"
-                            class="text-gray-900 border-transparent flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium"
-                            aria-controls="tabs-1-panel-1" role="tab" type="button">Women</button>
-
-                        <button id="tabs-1-tab-2"
-                            class="text-gray-900 border-transparent flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium"
-                            aria-controls="tabs-1-panel-2" role="tab" type="button">Men</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-t border-gray-200 py-6 px-4 space-y-6">
-                <div class="flow-root">
-                    <a href="{{ route('home') }}" class="-m-2 p-2 block font-medium text-gray-900">Home</a>
-                </div>
-
-                <div class="flow-root">
-                    <a href="{{ route('products.index') }}"
-                        class="-m-2 p-2 block font-medium text-gray-900">Producten</a>
-                </div>
-
-                <div class="flow-root">
-                    <a href="{{ route('prijzen') }}" class="-m-2 p-2 block font-medium text-gray-900">Prijzen</a>
-                </div>
-
-                <div class="flow-root">
-                    <a href="{{ route('over-ons') }}" class="-m-2 p-2 block font-medium text-gray-900">Over Ons</a>
-                </div>
-
-                <div class="flow-root">
-                    <a href="{{ route('contact') }}" class="-m-2 p-2 block font-medium text-gray-900">Contact</a>
-                </div>
-            </div>
-
-            <div class="border-t border-gray-200 py-6 px-4 space-y-6">
-                @auth
-                    <div class="flow-root">
-                        <a href="{{ route('profile') }}" class="-m-2 p-2 block font-medium text-gray-900">Mijn account</a>
-                    </div>
-                    <div class="flow-root">
-                        <a href="{{ route('logout') }}" class="-m-2 p-2 block font-medium text-gray-900">Log uit</a>
-                    </div>
-                @endauth
-                @guest
-                    <div class="flow-root">
-                        <a href="{{ route('login') }}" class="-m-2 p-2 block font-medium text-gray-900">Log in</a>
-                    </div>
-                    <div class="flow-root">
-                        <a href="{{ route('register') }}" class="-m-2 p-2 block font-medium text-gray-900">Maak een
-                            account</a>
-                    </div>
-                @endguest
-            </div>
-
-            <div class="border-t border-gray-200 py-6 px-4">
-                <a href="#" class="-m-2 p-2 flex items-center">
-                    <img src="https://tailwindui.com/img/flags/flag-canada.svg" alt=""
-                        class="w-5 h-auto block flex-shrink-0">
-                    <span class="ml-3 block text-base font-medium text-gray-900"> CAD </span>
-                    <span class="sr-only">, change currency</span>
-                </a>
+          </div>
+          -->
             </div>
         </div>
     </div>
-
-    <header class="relative bg-white dark:bg-yellow-500">
-        <p
-            class="bg-blue-600 h-10 flex items-center justify-center text-sm font-medium text-white px-4 sm:px-6 lg:px-8">
-            Get free delivery on orders over $100</p>
-
-        <nav aria-label="Top" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="border-b border-gray-200 dark:border-yellow-500">
-                <div class="h-16 flex items-center">
-                    <!-- Mobile menu toggle, controls the 'mobileMenuOpen' state. -->
-                    <button type="button" class=" p-2 rounded-md text-white lg:hidden" onclick="openMenu()">
-                        <span class="sr-only">Open menu</span>
-                        <!-- Heroicon name: outline/menu -->
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-
-                    <!-- Logo -->
-                    <div class="ml-4 flex lg:ml-0">
-                        <a href="/">
-                            <span class="sr-only">Workflow</span>
-                            <img class="h-8 w-auto"
-                                src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600" alt="">
-                        </a>
-                    </div>
-
-                    <!-- Flyout menus -->
-                    <div class="hidden lg:ml-8 lg:block lg:self-stretch">
-                        <div class="h-full flex space-x-8">
-                            <a href="{{ route('home') }}"
-                                class="flex items-center text-sm font-medium text-gray-700 dark:text-white hover:text-gray-800">Home</a>
-
-                            <a href="{{ route('products.index') }}"
-                                class="flex items-center text-sm font-medium text-gray-700 dark:text-white hover:text-gray-800">Producten</a>
-
-                            <a href="{{ route('prijzen') }}"
-                                class="flex items-center text-sm font-medium text-gray-700 dark:text-white hover:text-gray-800">Prijzen</a>
-
-                            <a href="{{ route('over-ons') }}"
-                                class="flex items-center text-sm font-medium text-gray-700 dark:text-white hover:text-gray-800">Over
-                                Ons</a>
-
-                            <a href="{{ route('contact') }}"
-                                class="flex items-center text-sm font-medium text-gray-700 dark:text-white hover:text-gray-800">Contact</a>
-                        </div>
-                    </div>
-
-                    <div class="ml-auto flex items-center">
-                        @auth
-                            <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                                <a href="{{ route('profile') }}"
-                                    class="text-sm font-medium text-gray-700 dark:text-white hover:text-gray-800">Mijn
-                                    account</a>
-                                <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
-                                <a href="{{ route('logout') }}"
-                                    class="text-sm font-medium text-gray-700 dark:text-white hover:text-gray-800">Log
-                                    uit</a>
-                            </div>
-                        @endauth
-                        @guest
-                            <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                                <a href="{{ route('login') }}"
-                                    class="text-sm font-medium text-gray-700 dark:text-white hover:text-gray-800">Sign
-                                    in</a>
-                                <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
-                                <a href="{{ route('register') }}"
-                                    class="text-sm font-medium text-gray-700 dark:text-white hover:text-gray-800">Create
-                                    account</a>
-                            </div>
-                        @endguest
-
-                        <!-- Search -->
-                        <div class="flex lg:ml-6">
-                            <button onclick="toggleSearch()" aria-label="search items"
-                                class="p-2 text-white hover:text-gray-500">
-                                <span class="sr-only">Search</span>
-                                <!-- Heroicon name: outline/search -->
-                                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                </svg>
-                            </button>
-                            <input id="searchInput" type="text" placeholder="search"
-                                class="hidden text-sm dark:bg-white dark:placeholder-gray-300 text-gray-600 rounded ml-1 border border-transparent focus:outline-none focus:border-gray-400 px-1" />
-                        </div>
-
-                        <!-- Cart -->
-                        <div class="ml-4 flow-root lg:ml-6">
-                            <a href="#" class="group -m-2 p-2 flex items-center">
-                                <!-- Heroicon name: outline/shopping-bag -->
-                                <svg class="flex-shrink-0 h-6 w-6 text-white group-hover:text-gray-500"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                                </svg>
-                                <span class="ml-2 text-sm font-medium text-white group-hover:text-gray-800">0</span>
-                                <span class="sr-only">items in cart, view bag</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
 </div>

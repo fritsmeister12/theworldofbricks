@@ -48,4 +48,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function mollieCustomerFields()
+    {
+        return [
+            'email' => $this->email,
+            'name' => $this->name,
+        ];
+    }
 }

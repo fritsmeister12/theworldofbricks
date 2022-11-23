@@ -1,51 +1,49 @@
 @extends('components.master')
 @section('title', 'Contact')
 @section('content')
-    <div class="w-full flex items-center justify-center my-12">
-        <div class="top-40 bg-white dark:bg-gray-700 shadow rounded py-12 lg:px-28 px-8">
-            <p class="md:text-3xl text-xl font-bold leading-7 text-center text-gray-700 dark:text-white">Let’s chat and get a
-                quote!</p>
-            <div class="md:flex items-center mt-12">
-                <div class="md:w-72 flex flex-col">
-                    <label class="text-base font-semibold leading-none text-gray-800 dark:text-white">Name</label>
-                    <input tabindex="0" arial-label="Please input name" type="name"
-                        class="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
-                        placeholder="Please input  name" />
-                </div>
-                <div class="md:w-72 flex flex-col md:ml-6 md:mt-0 mt-4">
-                    <label class="text-base font-semibold leading-none text-gray-800 dark:text-white">Email Address</label>
-                    <input tabindex="0" arial-label="Please input email address" type="name"
-                        class="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
-                        placeholder="Please input email address" />
-                </div>
-            </div>
-            <div class="md:flex items-center mt-8">
-                <div class="md:w-72 flex flex-col">
-                    <label class="text-base font-semibold leading-none text-gray-800 dark:text-white">Company name</label>
-                    <input tabindex="0" role="input" arial-label="Please input company name" type="name"
-                        class="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
-                        placeholder="Please input company name" />
-                </div>
-                <div class="md:w-72 flex flex-col md:ml-6 md:mt-0 mt-4">
-                    <label class="text-base font-semibold leading-none text-gray-800 dark:text-white">Country</label>
-                    <input tabindex="0" arial-label="Please input country name" type="name"
-                        class="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
-                        placeholder="Please input country name" />
+    <section class="text-gray-600 body-font relative">
+        <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
+            <div class="lg:w-2/3 md:w-1/2 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+                <iframe class="absolute inset-0" style="filter: grayscale(1) contrast(1.2) opacity(0.4);" title="map"
+                    marginheight="0" marginwidth="0" scrolling="no"
+                    src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=%C4%B0zmir+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed"
+                    width="100%" height="100%" frameborder="0"></iframe>
+                <div class="bg-white relative flex flex-wrap py-6 rounded shadow-md">
+                    <div class="lg:w-1/2 px-6">
+                        <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
+                        <p class="mt-1">Photo booth tattooed prism, portland taiyaki hoodie neutra typewriter</p>
+                    </div>
+                    <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
+                        <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
+                        <a class="text-indigo-500 leading-relaxed">example@email.com</a>
+                        <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
+                        <p class="leading-relaxed">123-456-7890</p>
+                    </div>
                 </div>
             </div>
-            <div>
-                <div class="w-full flex flex-col mt-8">
-                    <label class="text-base font-semibold leading-none text-gray-800 dark:text-white">Message</label>
-                    <textarea tabindex="0" aria-label="leave a message" role="textbox" type="name"
-                        class="h-36 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100 resize-none"></textarea>
+            <div class="lg:w-1/3 md:w-1/2  flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
+                <h2 class="dark:text-white text-gray-900 text-lg mb-1 font-medium title-font">Contact</h2>
+                <p class="leading-relaxed mb-5 text-gray-400">Mocht u vragen hebben of problemen ondervinden. Stuur ons
+                    gerust een bericht.
+                </p>
+                <div class="relative mb-4">
+                    <label for="name" class="leading-7 text-sm text-gray-400">Name</label>
+                    <input type="text" id="name" name="name"
+                        class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
-            </div>
-            <p class="text-xs leading-3 text-gray-600 dark:text-gray-200 mt-4">By clicking submit you agree to our terms of
-                service, privacy policy and how we use data as stated</p>
-            <div class="flex items-center justify-center w-full">
+                <div class="relative mb-4">
+                    <label for="email" class="leading-7 text-sm text-gray-400">Email</label>
+                    <input type="email" id="email" name="email"
+                        class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                </div>
+                <div class="relative mb-4">
+                    <label for="message" class="leading-7 text-sm text-gray-400">Message</label>
+                    <textarea id="message" name="message"
+                        class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                </div>
                 <button
-                    class="mt-9 text-base font-semibold leading-none text-white py-4 px-10 bg-indigo-700 rounded hover:bg-indigo-600 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:outline-none">SUBMIT</button>
+                    class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Versturen</button>
             </div>
         </div>
-    </div>
+    </section>
 @endsection
