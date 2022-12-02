@@ -1,65 +1,99 @@
 @extends('components.master')
 @section('title', 'Home')
 @section('content')
-    <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-6 lg:py-20">
-        <div class="flex flex-col items-center justify-between lg:flex-row">
-            <div class="mb-10 lg:max-w-lg lg:pr-5 lg:mb-0">
-                <div class="max-w-xl mb-6">
-                    <div>
-                        <p class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-white uppercase rounded-full"
-                            style="background-color: #201D48">
-                            Welkom
-                        </p>
-                    </div>
-                    <h2
-                        class="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl sm:leading-none">
-                        Bouw al jouw favoriete<br class="hidden md:block" /> Legosets.
-                    </h2>
-                    <p class="text-base text-gray-700 dark:text-gray-300 md:text-lg">
-                        De platform om de leukste sets
-                        maandelijks te ontvangen. Met meer
-                        dan 100+ Lego sets in ons assortiment.
+    {{-- <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-6 lg:py-20">
+    <div class="flex flex-col items-center justify-between lg:flex-row">
+        <div class="mb-10 lg:max-w-lg lg:pr-5 lg:mb-0">
+            <div class="max-w-xl mb-6">
+                <div>
+                    <p class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-white uppercase rounded-full"
+                        style="background-color: #201D48">
+                        Welkom
                     </p>
                 </div>
-                <div class="flex flex-col items-center md:flex-row">
-                    <a href=href="{{ route('verkoop.index') }}"
-                        class="inline-flex items-center justify-center w-full h-12 px-6 mb-3 font-medium tracking-wide text-black transition duration-200 rounded shadow-md md:w-auto md:mr-4 md:mb-0 focus:shadow-outline focus:outline-none"
-                        style="background-color: #FFCF00">
-                        <span class="mr-3">Producten</span>
-                        <svg width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round"
-                            stroke-linejoin="round" stroke-width="2" class="w-4">
-                            <polyline fill="none" stroke="currentColor" stroke-miterlimit="10"
-                                points="4,4 22,4 19,14 4,14 "></polyline>
-                            <circle cx="4" cy="22" r="2" stroke-linejoin="miter"
-                                stroke-linecap="square" stroke="none" fill="currentColor"></circle>
-                            <circle cx="20" cy="22" r="2" stroke-linejoin="miter"
-                                stroke-linecap="square" stroke="none" fill="currentColor"></circle>
-                            <polyline fill="none" stroke="currentColor" stroke-miterlimit="10"
-                                points="1,1 4,4 4,14 2,18 23,18 "></polyline>
-                        </svg>
-                    </a>
-                </div>
+                <h2
+                    class="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl sm:leading-none">
+                    Bouw al jouw favoriete<br class="hidden md:block" /> Legosets.
+                </h2>
+                <p class="text-base text-gray-700 dark:text-gray-300 md:text-lg">
+                    De platform om de leukste sets
+                    maandelijks te ontvangen. Met meer
+                    dan 100+ Lego sets in ons assortiment.
+                </p>
             </div>
-            <div class="relative lg:w-1/2 w-full">
-                <img class="object-cover w-full h-56 rounded shadow-lg sm:h-96"
-                    src="https://images.pexels.com/photos/927022/pexels-photo-927022.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260"
-                    alt="" />
-                <a href="/" aria-label="Play Video"
-                    class="absolute inset-0 flex items-center justify-center w-full h-full transition-colors duration-300 bg-gray-900 bg-opacity-50 group hover:bg-opacity-25">
-                    <div
-                        class="flex items-center justify-center w-16 h-16 transition duration-300 transform bg-gray-100 rounded-full shadow-2xl group-hover:scale-110">
-                        <svg class="w-10 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M16.53,11.152l-8-5C8.221,5.958,7.833,5.949,7.515,6.125C7.197,6.302,7,6.636,7,7v10 c0,0.364,0.197,0.698,0.515,0.875C7.667,17.958,7.833,18,8,18c0.184,0,0.368-0.051,0.53-0.152l8-5C16.822,12.665,17,12.345,17,12 S16.822,11.335,16.53,11.152z">
-                            </path>
-                        </svg>
-                    </div>
+            <div class="flex flex-col items-center md:flex-row">
+                <a href=href="{{ route('verkoop.index') }}"
+                    class="inline-flex items-center justify-center w-full h-12 px-6 mb-3 font-medium tracking-wide text-black transition duration-200 rounded shadow-md md:w-auto md:mr-4 md:mb-0 focus:shadow-outline focus:outline-none"
+                    style="background-color: #FFCF00">
+                    <span class="mr-3">Producten</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" class="w-4">
+                        <polyline fill="none" stroke="currentColor" stroke-miterlimit="10" points="4,4 22,4 19,14 4,14 ">
+                        </polyline>
+                        <circle cx="4" cy="22" r="2" stroke-linejoin="miter" stroke-linecap="square"
+                            stroke="none" fill="currentColor"></circle>
+                        <circle cx="20" cy="22" r="2" stroke-linejoin="miter" stroke-linecap="square"
+                            stroke="none" fill="currentColor"></circle>
+                        <polyline fill="none" stroke="currentColor" stroke-miterlimit="10"
+                            points="1,1 4,4 4,14 2,18 23,18 "></polyline>
+                    </svg>
                 </a>
             </div>
         </div>
+        <div class="relative lg:w-1/2 w-full">
+            <img class="object-cover w-full h-56 rounded shadow-lg sm:h-96"
+                src="https://images.pexels.com/photos/927022/pexels-photo-927022.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260"
+                alt="" />
+            <a href="/" aria-label="Play Video"
+                class="absolute inset-0 flex items-center justify-center w-full h-full transition-colors duration-300 bg-gray-900 bg-opacity-50 group hover:bg-opacity-25">
+                <div
+                    class="flex items-center justify-center w-16 h-16 transition duration-300 transform bg-gray-100 rounded-full shadow-2xl group-hover:scale-110">
+                    <svg class="w-10 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M16.53,11.152l-8-5C8.221,5.958,7.833,5.949,7.515,6.125C7.197,6.302,7,6.636,7,7v10 c0,0.364,0.197,0.698,0.515,0.875C7.667,17.958,7.833,18,8,18c0.184,0,0.368-0.051,0.53-0.152l8-5C16.822,12.665,17,12.345,17,12 S16.822,11.335,16.53,11.152z">
+                        </path>
+                    </svg>
+                </div>
+            </a>
+        </div>
     </div>
+    </div> --}}
 
+    <section>
+        <div class="container px-6 py-16 mx-auto text-center">
+            <div class="max-w-lg mx-auto">
+                <h1 class="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">Al jouw favoriete Legosets
+                    <br>op 1
+                    plek!
+                </h1>
+                <p class="mt-6 text-gray-500 dark:text-gray-300">De platform om de leukste sets
+                    maandelijks te ontvangen. Met meer
+                    dan 100+ Lego sets in ons assortiment.</p>
+                <a href=href="{{ route('verkoop.index') }}"
+                    class="inline-flex items-center justify-center w-full h-12 px-6 my-4 font-medium tracking-wide text-black transition duration-200 rounded shadow-md md:w-auto md:mr-4 md:mb-0 focus:shadow-outline focus:outline-none"
+                    style="background-color: #FFCF00">
+                    <span class="mr-3">Producten</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" class="w-4">
+                        <polyline fill="none" stroke="currentColor" stroke-miterlimit="10" points="4,4 22,4 19,14 4,14 ">
+                        </polyline>
+                        <circle cx="4" cy="22" r="2" stroke-linejoin="miter" stroke-linecap="square"
+                            stroke="none" fill="currentColor"></circle>
+                        <circle cx="20" cy="22" r="2" stroke-linejoin="miter" stroke-linecap="square"
+                            stroke="none" fill="currentColor"></circle>
+                        <polyline fill="none" stroke="currentColor" stroke-miterlimit="10"
+                            points="1,1 4,4 4,14 2,18 23,18 "></polyline>
+                    </svg>
+                </a>
+                <p class="mt-3 text-sm text-gray-400 ">No credit card required</p>
+            </div>
 
+            <div class="flex justify-center mt-10">
+                <img class="object-cover w-full h-96 rounded-xl"
+                    src="https://manly.bladecdn.net/wp-content/uploads/2022/11/LEGO-Architecture-Taj-Mahal-21056-uren-bouwplezier-met-fantastich-resultaat.jpg" />
+            </div>
+        </div>
+    </section>
 
     {{-- <div class="container mx-auto md:py-16 pl-4 md:px-6">
         <div class="flex items-strech justify-center flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 lg:space-x-8">
@@ -102,7 +136,7 @@
     </div>
 
     <!-- Slider main container -->
-    <div class="swiper mx-auto w-full p-6">
+    <div class="swiper mx-auto w-full px-2 py-6">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
             <!-- Slides -->
@@ -158,12 +192,10 @@
                                                 stroke-linejoin="round" stroke-width="2" class="w-4">
                                                 <polyline fill="none" stroke="currentColor" stroke-miterlimit="10"
                                                     points="4,4 22,4 19,14 4,14 "></polyline>
-                                                <circle cx="4" cy="22" r="2"
-                                                    stroke-linejoin="miter" stroke-linecap="square" stroke="none"
-                                                    fill="currentColor"></circle>
-                                                <circle cx="20" cy="22" r="2"
-                                                    stroke-linejoin="miter" stroke-linecap="square" stroke="none"
-                                                    fill="currentColor"></circle>
+                                                <circle cx="4" cy="22" r="2" stroke-linejoin="miter"
+                                                    stroke-linecap="square" stroke="none" fill="currentColor"></circle>
+                                                <circle cx="20" cy="22" r="2" stroke-linejoin="miter"
+                                                    stroke-linecap="square" stroke="none" fill="currentColor"></circle>
                                                 <polyline fill="none" stroke="currentColor" stroke-miterlimit="10"
                                                     points="1,1 4,4 4,14 2,18 23,18 "></polyline>
                                             </svg>
@@ -213,7 +245,7 @@
     </div>
 
     <!-- Slider main container -->
-    <div class="swiper mx-auto w-full p-6">
+    <div class="swiper mx-auto w-full px-2 py-6">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
             <!-- Slides -->
