@@ -17,9 +17,12 @@ class SellController extends Controller
             ->havingRaw('count(*) >= 1')
             ->paginate(6);
 
-        return view('products.index', compact('data'))
+
+        return view('products.index-products', compact('data'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
+
+
 
     public function show($id)
     {

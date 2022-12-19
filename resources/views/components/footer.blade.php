@@ -1,4 +1,3 @@
-@include('components.highlights')
 <div class="p-16" style="background-color: #201D48">
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 md:gap-8 gap-4">
         <div class="flex flex-col flex-shrink-0">
@@ -20,23 +19,20 @@
             <p class="text-sm leading-none text-gray-300 mt-4 dark:text-gray-300">All rights reserved</p>
         </div>
         <div class="sm:ml-0 ml-8 flex flex-col">
-            <h2 class="text-base font-semibold leading-4 text-white uppercase dark:text-gray-300">Company</h2>
+            <h2 class="text-base font-semibold leading-4 text-white uppercase dark:text-gray-300">Link
+            </h2>
             <a href="javascript:void(0)"
                 class="focus:outline-none focus:underline hover:text-gray-500 text-base leading-4 mt-6 text-gray-300 dark:text-gray-300 cursor-pointer">Producten</a>
             <a href="javascript:void(0)"
                 class="focus:outline-none focus:underline hover:text-gray-500 text-base leading-4 mt-6 text-gray-300 dark:text-gray-300 cursor-pointer">Over
                 Ons</a>
             <a href="javascript:void(0)"
-                class="focus:outline-none focus:underline hover:text-gray-500 text-base leading-4 mt-6 text-gray-300 dark:text-gray-300 cursor-pointer">Contact</a>
+                class="focus:outline-none focus:underline hover:text-gray-500 text-base leading-4 mt-6 text-gray-300 dark:text-gray-300 cursor-pointer">Onderdelen</a>
         </div>
         <div class="flex flex-col">
             <h2 class="text-base font-semibold leading-4 text-gray-300 uppercase dark:text-gray-300">Support</h2>
-            <a href="javascript:void(0)"
-                class="focus:outline-none focus:underline hover:text-gray-500 text-base leading-4 mt-6 text-gray-300 dark:text-gray-300 cursor-pointer">Legal
-                policy</a>
-            <a href="javascript:void(0)"
-                class="focus:outline-none focus:underline hover:text-gray-500 text-base leading-4 mt-6 text-gray-300 dark:text-gray-300 cursor-pointer">Privacy
-                policy</a>
+            <a href="{{ route('contact') }}"
+                class="focus:outline-none focus:underline hover:text-gray-500 text-base leading-4 mt-6 text-gray-300 dark:text-gray-300 cursor-pointer">Contact</a>
             <a href="javascript:void(0)"
                 class="focus:outline-none focus:underline hover:text-gray-500 text-base leading-4 mt-6 text-gray-300 dark:text-gray-300 cursor-pointer">Terms
                 of service</a>

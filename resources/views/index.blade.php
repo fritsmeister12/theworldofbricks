@@ -232,6 +232,57 @@
         <div class="swiper-button-next text-gray-500 opacity-20 hover:opacity-100 mr-2"></div>
     </div>
 
+    <section class="m-8 mb-16 dark:bg-gray-800 dark:text-gray-100">
+        <div class="container mx-auto p-4 my-6 space-y-2 text-center">
+            <h2 class="text-5xl font-bold">Waarom ons?</h2>
+            <p class="dark:text-gray-400">Libero minima optio qui</p>
+        </div>
+        <div class="container mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="flex flex-col items-center p-4">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                    class="w-8 h-8 dark:text-yellow-400">
+                    <path fill-rule="evenodd"
+                        d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                <h3 class="my-3 text-3xl font-semibold">Producten</h3>
+                <div class="space-y-1 leading-tight">
+                    <p>Similique quas ea veniam</p>
+                    <p>Tempore quasi porro</p>
+                    <p>Blanditiis aut mollitia ex</p>
+                </div>
+            </div>
+            <div class="flex flex-col items-center p-4">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                    class="w-8 h-8 dark:text-yellow-400">
+                    <path fill-rule="evenodd"
+                        d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                <h3 class="my-3 text-3xl font-semibold">Bezorgen</h3>
+                <div class="space-y-1 leading-tight">
+                    <p>Similique quas ea veniam</p>
+                    <p>Tempore quasi porro</p>
+                    <p>Blanditiis aut mollitia ex</p>
+                </div>
+            </div>
+            <div class="flex flex-col items-center p-4">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                    class="w-8 h-8 dark:text-yellow-400">
+                    <path fill-rule="evenodd"
+                        d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                <h3 class="my-3 text-3xl font-semibold">Service</h3>
+                <div class="space-y-1 leading-tight">
+                    <p>Similique quas ea veniam</p>
+                    <p>Tempore quasi porro</p>
+                    <p>Blanditiis aut mollitia ex</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{-- Uitgelicht --}}
     <div class="px-4 md:px-6 2xl:px-0 2xl:mx-auto 2xl:container flex justify-center items-center">
         <div class="flex justify-between items-center w-full">
@@ -245,7 +296,7 @@
     </div>
 
     <!-- Slider main container -->
-    <div class="swiper mx-auto w-full px-2 py-6">
+    <div class="swiper mx-auto w-full px-2 py-6 mb-12">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
             <!-- Slides -->
@@ -344,6 +395,8 @@
         <div class="swiper-button-prev text-gray-500 opacity-20 hover:opacity-100 ml-2"></div>
         <div class="swiper-button-next text-gray-500 opacity-20 hover:opacity-100 mr-2"></div>
     </div>
+    @include('components.highlights')
+
     <script>
         const swiper = new Swiper('.swiper', {
             // Optional parameters

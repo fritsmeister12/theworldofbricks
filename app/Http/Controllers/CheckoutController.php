@@ -2,29 +2,45 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
+use App\Mail\PaymentConfirm;
 use App\Models\User;
+use App\Models\Order;
 use App\Models\Product;
-use App\Models\SellProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class CheckoutController extends Controller
 {
     public function index(Request $request)
     {
-        $this->validate($request, [
-            'product_id' => 'required',
-        ]);
+        // $this->validate($request, [
+        //     'product_id' => 'required',
+        // ]);
 
-        $product = SellProduct::find($request->product_id);
+        // $product = SellProduct::find($request->product_id);
 
-        return view('checkout.show', compact('product'));
+        // return view('checkout.show', compact('product'));
     }
 
     public function __construct()
     {
         $this->middleware(['auth']);
+    }
+
+    public function succes()
+    {
+        $email = auth()->user()->email;
+
+
+        $maildata = [
+            'title' => 'Laravel Mail Sending Example with Markdown',
+            'url' => 'http://www.theworldofbricks.nl'
+        ];
+
+        Mail::to($email)->send(new PaymentConfirm($maildata));
+        // return (new PaymentConfirm($maildata))->render();
+        return view('checkout.succes');
     }
 
 
@@ -74,8 +90,8 @@ class CheckoutController extends Controller
             ]],
             'mode' => 'payment',
             'customer' => $data[0]->cus_id,
-            'success_url' => 'http://front-lego.test' . '/success.html',
-            'cancel_url' => 'http://front-lego.test' . '/cancel.html',
+            'success_url' => 'http://front-lego.test' . '/succes',
+            'cancel_url' => 'http://front-lego.test' . '/cancel',
         ]);
 
         $orderProd = DB::select('select name, prod_id, price_id from products where price_id ="' . $price->id . '"');

@@ -31,6 +31,10 @@ Route::get('/over-ons', function () {
     return view('pages.about-us');
 })->name('over-ons');
 
+Route::get('/bricklink', function () {
+    return view('pages.about-us');
+})->name('bricklink');
+
 Route::get('/contact', function () {
     return view('pages.contact');
 })->name('contact');
@@ -56,8 +60,8 @@ Route::get('/log-uit', [LogoutController::class, 'index'])->name('logout');
 
 Route::get('/prijzen', 'SubscriptionController@index')->name('prijzen');
 Route::post('/checkout', 'SubscriptionController@checkout')->name('checkout');
-Route::get('/succes', 'SubscriptionController@succes')->name('succes');
 
+Route::get('/succes', 'CheckoutController@succes')->name('succes');
 Route::get('/pay', 'CheckoutController@pay')->name('pay');
 Route::post('/pay-proceed', 'CheckoutController@pay')->name('payProceed');
 
