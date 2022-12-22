@@ -19,7 +19,7 @@
             </span>
 
             <a href="#" class="text-gray-600 dark:text-gray-200 hover:underline">
-                Verkoop
+                Producten
             </a>
 
             <span class="mx-5 text-gray-500 dark:text-gray-300">
@@ -30,15 +30,15 @@
                 </svg>
             </span>
 
-            <a href="#" class="text-gray-600 dark:text-gray-200 hover:underline">
-                Alles
+            <a href="#" class="text-gray-600 dark:text-gray-200 hover:underline capitalize">
+                {{ $categorie }}
             </a>
         </div>
         <section>
             <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
                 <header>
-                    <h2 class="text-xl font-bold dark:text-white text-gray-900 sm:text-3xl">
-                        Bekijk Alles
+                    <h2 class="text-xl font-bold dark:text-white text-gray-900 sm:text-3xl capitalize">
+                        {{ $categorie }}
                     </h2>
 
                     <p class="max-w-md mt-4 dark:text-gray-200 text-gray-500">
@@ -326,16 +326,19 @@
                                         <div class="flex items-center justify-between py-4">
                                             <h2 tabindex="0"
                                                 class="focus:outline-none text-yellow-500 text-xs font-semibold">
-                                                3
-                                                Beschikbaar</h2>
+                                                @if ($product->voorraad == 'op_voorraad')
+                                                    Direct Leverbaar
+                                                @else
+                                                    Tijdelijk Niet Leverbaar
+                                                @endif
+                                            </h2>
                                             <h3 tabindex="0"
                                                 class="focus:outline-none text-yellow-500 text-xl font-semibold">
                                                 €{{ $product->price }}
-                                                Per Week
                                             </h3>
                                         </div>
                                         @if ($product->sellable == '1')
-                                            <a href="{{ route('verkoop.show', $product->id) }}"
+                                            <a href="{{ route('producten-show', [$product->category, $product->id]) }}"
                                                 class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                                 <span class="absolute left-0 inset-y-0 flex items-center pl-3">
                                                     <!-- Heroicon name: solid/lock-closed -->

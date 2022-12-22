@@ -112,7 +112,7 @@
                                     </div>
                                 </div>
 
-                                <p class="text-lg font-bold">€{{ $product->price }}</p>
+                                <p class="text-5xl text-yellow-500 font-bold">€{{ $product->price }}</p>
                             </div>
 
                             <details class="group relative mt-4 [&_summary::-webkit-details-marker]:hidden">
@@ -247,11 +247,14 @@
                                     </div>
                                 </fieldset>
 
-                                <div class="flex mt-8">
-                                    <button type="submit"
-                                        class="block px-5 py-3 text-xs font-medium text-white bg-green-600 rounded hover:bg-green-500">
+                                <div class="flex mt-8 space-x-2">
+                                    <a href=""
+                                        class="block px-5 py-3 text-xs font-medium text-white bg-red-600 rounded hover:bg-red-700">
                                         Bestellen
-                                    </button>
+                                    </a>
+                                    <a href="{{ url('winkelmandje/' . $product->id) }}"
+                                        class="block px-5 py-3 text-xs font-medium text-white bg-yellow-500 rounded hover:bg-yellow-600">
+                                        In Winkelmand</a>
                                 </div>
                             </form>
                         </div>

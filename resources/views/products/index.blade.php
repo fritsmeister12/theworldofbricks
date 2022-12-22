@@ -94,7 +94,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('verkoop.index') }}" class="block group">
+                    <a href="{{ route('producten-categorie', 'architecture') }}" class="block group">
                         <img src="https://www.lego.com/cdn/cs/set/assets/blt4358b3e85c8e2f41/Architecture-AllThemes-202206-Theme-Preview.jpg?fit=bounds&format=webply&quality=80&width=420&height=200&dpr=2"
                             alt="" class="h-[200px] rounded w-full object-cover sm:h-[200px]" />
 

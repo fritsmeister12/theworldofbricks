@@ -2,10 +2,12 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\RegisterController;
@@ -24,7 +26,11 @@ use Illuminate\Routing\Route as RoutingRoute;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::resource('producten', ProductController::class);
+// Route::resource('producten', ProductController::class);
+
+Route::get('/producten', [ProductController::class, 'index'])->name('producten');
+Route::get('/producten/{categorie}', [ProductController::class, 'categorie'])->name('producten-categorie');
+Route::get('/producten/{categorie}/{id}', [ProductController::class, 'show'])->name('producten-show');
 
 // Pages >-----------------<
 Route::get('/over-ons', function () {
@@ -44,7 +50,7 @@ Route::get('/terms-of-services', function () {
 })->name('tos');
 // End Pages >-----------------<
 
-Route::resource('verkoop', SellController::class);
+// Route::resource('verkoop', SellController::class);
 
 // Auth
 Route::get('/aanmelden', [RegisterController::class, 'index'])->name('register');
@@ -75,3 +81,7 @@ Route::get('/annuleren', function () {
 Route::get('/profiel', [ProfileController::class, 'index'])->name('profile')->middleware('auth');
 
 Route::post('/afrekenen', [CheckoutController::class, 'index'])->name('order')->middleware('auth');
+
+// Cart
+Route::get('winkelmandje', [CartController::class, 'winkelmand'])->name('winkelmandje');
+Route::get('winkelmandje/{id}', [CartController::class, 'addToCart']);
