@@ -250,26 +250,30 @@
                 </div>
                 <div class="w-full px-4 lg:w-1/2 xl:w-5/12">
                     <div class="mt-10 lg:mt-0">
-                        <span class="text-primary mb-2 block text-lg font-semibold">
+                        <span class="text-gray-900 dark:text-gray-200 mb-2 block text-lg font-semibold">
                             Why Choose Us
                         </span>
-                        <h2 class="text-dark mb-8 text-3xl font-bold sm:text-4xl">
+                        <h2 class="text-gray-900 dark:text-gray-100 mb-8 text-3xl font-bold sm:text-4xl">
                             Make your customers happy by giving services.
                         </h2>
-                        <p class="text-body-color mb-8 text-base">
-                            It is a long established fact that a reader will be distracted by
-                            the readable content of a page when looking at its layout. The point
-                            of using Lorem Ipsum is that it has a more-or-less.
+                        <p class="text-gray-900 dark:text-gray-300 mb-8 text-base">
+                            Wij zijn een team van LEGO-liefhebbers dat graag de mooiste en leukste LEGO sets met de wereld
+                            deelt. Of je nu op zoek bent naar klassieke bouwblokken, de nieuwste thema's, of exclusieve en
+                            hard-to-find sets, wij hebben iets voor iedereen.
                         </p>
-                        <p class="text-body-color mb-12 text-base">
-                            A domain name is one of the first steps to establishing your brand.
-                            Secure a consistent brand image with a domain name that matches your
-                            business.
+                        <p class="text-gray-900 dark:text-gray-300 mb-8 text-base">
+                            Onze missie is om iedereen te helpen om hun creativiteit en bouwvaardigheden te verbeteren door
+                            middel van LEGO. We bieden een breed assortiment aan LEGO sets voor alle leeftijden en niveaus,
+                            van beginners tot ervaren bouwers.
                         </p>
-                        <a href="javascript:void(0)"
-                            class="bg-primary inline-flex items-center justify-center rounded-lg py-4 px-10 text-center text-base font-normal text-white hover:bg-opacity-90 lg:px-8 xl:px-10">
-                            Get Started
-                        </a>
+                        <p class="text-gray-900 dark:text-gray-300 mb-8 text-base">
+                            We hopen dat je onze webshop leuk vindt en dat je terugkomt voor al je LEGO behoeften. Als je
+                            vragen hebt of hulp nodig hebt bij het vinden van een bepaald product, aarzel dan niet om
+                            contact met ons op te nemen. Wij staan altijd klaar om je te helpen.
+                        </p>
+                        <p class="text-gray-900 dark:text-gray-300 mb-12 text-base">
+                            Bedankt voor het bezoeken van onze webshop en we hopen je snel weer te zien!
+                        </p>
                     </div>
                 </div>
             </div>

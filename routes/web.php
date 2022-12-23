@@ -85,3 +85,5 @@ Route::post('/afrekenen', [CheckoutController::class, 'index'])->name('order')->
 // Cart
 Route::get('winkelmandje', [CartController::class, 'winkelmand'])->name('winkelmandje');
 Route::get('winkelmandje/{id}', [CartController::class, 'addToCart']);
+Route::patch('winkelmandje-update', [CartController::class, 'update']);
+Route::delete('winkelmandje-verwijder', [CartController::class, 'remove']);

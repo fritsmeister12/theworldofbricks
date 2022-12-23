@@ -293,7 +293,8 @@
                 <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 mt-8">
                     @foreach ($data as $key => $product)
                         @if ($product->available == true)
-                            <div tabindex="0" class="focus:outline-none mx-2 mb-4 ">
+                            <div tabindex="0" class="focus:outline-none mx-2 mb-4 cursor-pointer"
+                                onclick="location.href='{{ route('producten-show', [$product->category, $product->id]) }}';">
                                 <div>
                                     <img alt="person capturing an image"
                                         src="{{ url('http://back-lego.test/storage/images/products/' . $product->image_thumbnail) }}"

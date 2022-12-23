@@ -3,94 +3,160 @@
 @section('content')
     <div class="container mx-auto">
         <?php $total = 0; ?>
-        <div class="flex my-8">
-            <div class="w-3/4 px-10 py-14">
-                <div class="flex justify-between border-b pb-8">
-                    <h1 class="font-semibold text-2xl">Shopping Cart</h1>
-                    <h2 class="font-semibold text-2xl">3 Items</h2>
-                </div>
-                <div class="flex mt-10 mb-5">
-                    <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
-                    <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Quantity</h3>
-                    <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Price</h3>
-                    <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
-                </div>
-                @if (session('cart'))
-                    @foreach (session('cart') as $id => $details)
-                        <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-                            <div class="flex w-2/5">
-                                <!-- product -->
+        <section>
+            <div class="px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
+                <div class="max-w-5xl mx-auto">
+                    <header class="">
+                        <h1 class="text-xl font-bold text-gray-900 sm:text-3xl">Your Cart</h1>
+                    </header>
 
-                                <div class="w-20">
-                                    <img class="h-24" src="{{ $details['photo'] }}" alt="">
-                                </div>
-                                <div class="flex flex-col justify-between ml-4">
-                                    <div class="flex flex-col justify-start flex-grow">
-                                        <span class="font-bold text-sm">{{ $details['name'] }}</span>
-                                        {{-- <span class="text-red-500 text-xs">{{ $details['description'] }}</span> --}}
+                    <div class="mt-8">
+                        <ul class="space-y-4">
+                            @if (session('cart'))
+                                @foreach (session('cart') as $id => $details)
+                                    <?php $total += $details['price'] * $details['quantity']; ?>
+                                    <li class="flex items-center">
+                                        <img src="{{ url('http://back-lego.test/storage/images/products/' . $details['photo']) }}"
+                                            alt="" class="object-cover lg:w-24 lg:h-24 w-16 h-16 rounded" />
+
+                                        <div class="ml-4">
+                                            <h3 class="text-sm text-gray-900">{{ $details['name'] }}</h3>
+
+                                            <dl class="mt-0.5 space-y-px text-[10px] text-gray-600">
+                                                <div>
+                                                    {{-- <dt class="inline">{{ $details['category'] }}</dt> --}}
+                                                    <dd class="inline">XXS</dd>
+                                                </div>
+
+                                                <div class="text-xs">
+                                                    <dt class="inline">Prijs:</dt>
+                                                    <dd class="inline font-bold">€{{ $details['price'] }}</dd>
+                                            </dl>
+                                        </div>
+
+                                        <div class="flex items-center justify-end flex-1 gap-2">
+                                            <form>
+                                                <label for="Line1Qty" class="sr-only"> Quantity </label>
+
+                                                <input type="number" min="1" value="{{ $details['quantity'] }}"
+                                                    id="quantity"
+                                                    class="h-8 w-12 quantity rounded border-gray-200 bg-gray-50 p-0 text-center text-xs text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" />
+                                            </form>
+
+                                            <button class="text-gray-600 transition update-cart hover:text-red-600"
+                                                data-id="{{ $id }}">
+                                                <span class="sr-only">Edit item</span>
+
+                                                <i class="fas fa-sync-alt"></i>
+                                            </button>
+
+                                            <button class="text-gray-600 transition remove-from-cart hover:text-red-600"
+                                                data-id="{{ $id }}">
+                                                <span class="sr-only">Remove item</span>
+
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            @endif
+                        </ul>
+
+                        @php
+                            $btw = ($total / 121) * 100;
+                        @endphp
+                        <div class="flex justify-end pt-8 mt-8 border-t border-gray-100">
+                            <div class="w-screen max-w-lg space-y-4">
+                                <dl class="space-y-0.5 text-sm text-gray-700">
+                                    <div class="flex justify-between">
+                                        <dt>Subtotal</dt>
+                                        <dd>€{{ number_format($btw, 2) }}</dd>
                                     </div>
-                                    <a href="#"
-                                        class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
+
+                                    <div class="flex justify-between">
+
+                                        <dt>BTW</dt>
+                                        <dd>
+                                            €{{ number_format($total - $btw, 2) }}
+                                        </dd>
+                                    </div>
+
+                                    {{-- <div class="flex justify-between">
+                                        <dt>Discount</dt>
+                                        <dd>-£20</dd>
+                                    </div> --}}
+
+                                    <div class="flex justify-between !text-base font-medium">
+                                        <dt>Total</dt>
+                                        <dd>€{{ $total }}</dd>
+                                    </div>
+                                </dl>
+
+                                <div class="flex justify-end">
+                                    <span
+                                        class="inline-flex items-center justify-center rounded-full bg-indigo-100 px-2.5 py-0.5 text-indigo-700">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="-ml-1 mr-1.5 h-4 w-4">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z" />
+                                        </svg>
+
+                                        <p class="text-xs whitespace-nowrap">2 Discounts Applied</p>
+                                    </span>
                                 </div>
 
+                                <div class="flex justify-end">
+                                    <a href="#"
+                                        class="block px-5 py-3 text-sm text-gray-100 transition bg-gray-700 rounded hover:bg-gray-600">
+                                        Checkout
+                                    </a>
+                                </div>
                             </div>
-                            <div class="flex justify-center w-1/5">
-                                <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
-                                    <path
-                                        d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                                </svg>
-
-                                <input class="mx-2 border text-center w-8" type="text" value="1">
-
-                                <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
-                                    <path
-                                        d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                                </svg>
-                            </div>
-                            <span class="text-center w-1/5 font-semibold text-sm">$400.00</span>
-                            <span class="text-center w-1/5 font-semibold text-sm">$400.00</span>
                         </div>
-                    @endforeach
-                @endif
-
-
-                <a href="#" class="flex font-semibold text-indigo-600 text-sm mt-10">
-
-                    <svg class="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512">
-                        <path
-                            d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z" />
-                    </svg>
-                    Continue Shopping
-                </a>
-            </div>
-
-            <div id="summary" class="w-1/4 px-8 py-14">
-                <h1 class="font-semibold text-2xl border-b pb-8">Order Summary</h1>
-                <div class="flex justify-between mt-10 mb-5">
-                    <span class="font-semibold text-sm uppercase">Items 3</span>
-                    <span class="font-semibold text-sm">590$</span>
-                </div>
-                <div>
-                    <label class="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
-                    <select class="block p-2 text-gray-600 w-full text-sm">
-                        <option>Standard shipping - $10.00</option>
-                    </select>
-                </div>
-                <div class="py-10">
-                    <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Promo Code</label>
-                    <input type="text" id="promo" placeholder="Enter your code" class="p-2 text-sm w-full">
-                </div>
-                <button class="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">Apply</button>
-                <div class="border-t mt-8">
-                    <div class="flex font-semibold justify-between py-6 text-sm uppercase">
-                        <span>Total cost</span>
-                        <span>$600</span>
                     </div>
-                    <button
-                        class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
                 </div>
             </div>
+        </section>
 
-        </div>
     </div>
+@endsection
+@section('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript">
+        $(".update-cart").click(function(e) {
+            e.preventDefault();
+            var ele = $(this);
+            $.ajax({
+                url: '{{ url('winkelmandje-update') }}',
+                method: "patch",
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    id: ele.attr("data-id"),
+                    quantity: ele.parents("div").find(".quantity").val()
+                },
+                success: function(response) {
+                    window.location.reload();
+                }
+            });
+        });
+        $(".remove-from-cart").click(function(e) {
+            e.preventDefault();
+            var ele = $(this);
+            if (confirm("Are you sure")) {
+                $.ajax({
+                    url: '{{ url('winkelmandje-verwijder') }}',
+                    method: "DELETE",
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        id: ele.attr("data-id")
+                    },
+                    success: function(response) {
+                        window.location.reload();
+                    }
+                });
+            }
+        });
+    </script>
 @endsection
