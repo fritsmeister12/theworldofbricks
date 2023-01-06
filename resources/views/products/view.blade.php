@@ -54,14 +54,6 @@
                                 <img alt="Les Paul"
                                     src="https://images.unsplash.com/photo-1456948927036-ad533e53865c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
                                     class="object-cover w-full aspect-square rounded-xl" />
-
-                                <img alt="Les Paul"
-                                    src="https://images.unsplash.com/photo-1456948927036-ad533e53865c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                                    class="object-cover w-full aspect-square rounded-xl" />
-
-                                <img alt="Les Paul"
-                                    src="https://images.unsplash.com/photo-1456948927036-ad533e53865c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                                    class="object-cover w-full aspect-square rounded-xl" />
                             </div>
                         </div>
 
@@ -215,9 +207,9 @@
             <section class="bg-white dark:bg-gray-900">
                 <div class="pt-2 pb-8 px-4 mx-auto max-w-screen-xl lg:px-6">
                     <div class="mx-auto lg:mb-4 mb-2">
-                        <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+                        <h2 class="mb-1 text-xl lg:text-2xl tracking-tight font-extrabold text-gray-900 dark:text-white">
                             Bekijk Ook</h2>
-                        <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">Bekijk hier andere populaire
+                        <p class="font-light text-gray-500 sm:text-md dark:text-gray-400">Bekijk hier andere populaire
                             sets!</p>
                     </div>
                     <div class="grid gap-8 lg:grid-cols-2">

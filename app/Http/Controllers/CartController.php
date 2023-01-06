@@ -28,6 +28,8 @@ class CartController extends Controller
                     "name" => $product->name,
                     "quantity" => 1,
                     "price" => $product->price,
+                    "price_id" => $product->price_id,
+                    "prod_id" => $product->prod_id,
                     "photo" => $product->image_thumbnail
                 ]
             ];
@@ -52,6 +54,8 @@ class CartController extends Controller
             "name" => $product->name,
             "quantity" => 1,
             "price" => $product->price,
+            "price_id" => $product->price_id,
+            "prod_id" => $product->prod_id,
             "photo" => $product->image_thumbnail
         ];
 

@@ -68,44 +68,55 @@ class CheckoutController extends Controller
                 ->update(['cus_id' => $customer->data[0]->id]);
         }
 
-        $prod = $stripe->products->retrieve(
-            $request->prod_id,
-        );
+        $line_items_array = array();
+        $prods_id = array();
+        $prices_id = array();
+        $prods_name = array();
+
+        if (session('cart')) {
+            foreach (session('cart') as $id => $details) {
+                array_push($line_items_array, ['price' => $details['price_id'], 'quantity' => $details['quantity']]);
+                array_push($prods_id, $details['prod_id']);
+                array_push($prices_id, $details['price_id']);
+                array_push($prods_name, $details['name']);
+            }
+        }
+
+        // dd($prods_name);
+
+        // $prod = $stripe->products->retrieve(
+        //     $request->prod_id,
+        // );
 
 
 
-        $price = $stripe->prices->retrieve(
-            $prod->default_price,
-        );
+        // $price = $stripe->prices->retrieve(
+        //     $prod->default_price,
+        // );
 
         $checkout_session = \Stripe\Checkout\Session::create([
             'billing_address_collection' => 'required',
             'shipping_address_collection' => [
                 'allowed_countries' => ['NL'],
             ],
-            'line_items' => [[
-                # Provide the exact Price ID (e.g. pr_1234) of the product you want to sell
-                'price' => $price->id,
-                'quantity' => 1,
-            ]],
+            'line_items' => [[$line_items_array]],
             'mode' => 'payment',
             'customer' => $data[0]->cus_id,
             'success_url' => 'http://front-lego.test' . '/succes',
             'cancel_url' => 'http://front-lego.test' . '/cancel',
         ]);
 
-        $orderProd = DB::select('select name, prod_id, price_id from products where price_id ="' . $price->id . '"');
 
         // dd($orderProd[0]->name);
 
         // DB::table('orders')->insert($orderProds[0]);
 
         $order = Order::create([
-            'product_name' =>  $orderProd[0]->name,
+            'product_name' =>  json_encode($prods_name),
             'payment_status' => 'Pending',
             'order_status' => 'Geen bevestiging ontvangen',
-            'prod_id' => $orderProd[0]->prod_id,
-            'price_id' => $orderProd[0]->price_id,
+            'prod_id' => json_encode($prods_id),
+            'price_id' => json_encode($prices_id),
             'user_id' => auth()->user()->id,
         ]);
 

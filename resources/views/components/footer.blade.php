@@ -21,19 +21,19 @@
         <div class="sm:ml-0 ml-8 flex flex-col">
             <h2 class="text-base font-semibold leading-4 text-white uppercase dark:text-gray-300">Link
             </h2>
-            <a href="javascript:void(0)"
+            <a href="{{ route('producten') }}"
                 class="focus:outline-none focus:underline hover:text-gray-500 text-base leading-4 mt-6 text-gray-300 dark:text-gray-300 cursor-pointer">Producten</a>
-            <a href="javascript:void(0)"
+            <a href="{{ route('over-ons') }}"
                 class="focus:outline-none focus:underline hover:text-gray-500 text-base leading-4 mt-6 text-gray-300 dark:text-gray-300 cursor-pointer">Over
                 Ons</a>
-            <a href="javascript:void(0)"
+            <a href="{{ route('bricklink') }}"
                 class="focus:outline-none focus:underline hover:text-gray-500 text-base leading-4 mt-6 text-gray-300 dark:text-gray-300 cursor-pointer">Onderdelen</a>
         </div>
         <div class="flex flex-col">
             <h2 class="text-base font-semibold leading-4 text-gray-300 uppercase dark:text-gray-300">Support</h2>
             <a href="{{ route('contact') }}"
                 class="focus:outline-none focus:underline hover:text-gray-500 text-base leading-4 mt-6 text-gray-300 dark:text-gray-300 cursor-pointer">Contact</a>
-            <a href="javascript:void(0)"
+            <a href="{{ route('tos') }}"
                 class="focus:outline-none focus:underline hover:text-gray-500 text-base leading-4 mt-6 text-gray-300 dark:text-gray-300 cursor-pointer">Terms
                 of service</a>
         </div>
