@@ -1,13 +1,14 @@
 @extends('components.master')
 @section('title', 'Home')
 @section('content')
+    <div class="p-40 bg-yellow-500 absolute top-0 left-0 w-full" style="background-color: #FFCF00"></div>
     <section>
-        <div class="container px-6 py-16 mx-auto text-center">
-            <div class="flex justify-center my-6">
-                <img class="object-cover w-full h-96 rounded-xl"
+        <div class="grid grid-cols-4 container lg:py-8 mx-auto">
+            <div class="col-span-4 justify-center z-10 my-4 lg:my-6">
+                <img class="object-cover w-full h-56 lg:h-96 lg:rounded-xl"
                     src="https://manly.bladecdn.net/wp-content/uploads/2022/11/LEGO-Architecture-Taj-Mahal-21056-uren-bouwplezier-met-fantastich-resultaat.jpg" />
             </div>
-            <div class="max-w-lg mx-auto">
+            <div class="mx-auto text-center col-span-4 px-4 max-w-lg my-6 lg:px-2">
                 <h1 class="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">Al jouw favoriete Legosets
                     <br>op 1
                     plek!
@@ -34,6 +35,7 @@
                 <p class="mt-3 text-sm text-gray-400 ">No credit card required</p>
             </div>
         </div>
+
     </section>
 
     {{-- Uitgelicht --}}

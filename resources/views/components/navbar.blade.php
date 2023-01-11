@@ -15,19 +15,19 @@
 </script>
 
 {{-- New Navbar --}}
-<header class="w-full fixed top-0 z-50">
+<header class="w-full fixed top-0 z-40">
     <p class="h-10 flex items-center justify-center text-sm  font-light text-white px-4 sm:px-6 lg:px-8"
         style="background-color: #201D48">
         Get free delivery on orders over $100</p>
     <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5" style="background-color: #FFCF00">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <a href="#" class="flex items-center">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
-                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-grey-800">The World of
+                <img src="{{ asset('images/unnamed.png') }}" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
+                <span class="self-center text-lg font-semibold whitespace-nowrap dark:text-grey-800">The World of
                     Bricks</span>
             </a>
 
-            <div class="flex items-center lg:order-2 divide-x divide-gray-700">
+            <div class="flex items-center lg:order-2">
                 <span>
                     <a href="{{ route('winkelmandje') }}" class="block px-4">
                         <button class="py-4 px-1 relative  border-transparent text-gray-800 rounded-full"
@@ -55,7 +55,7 @@
                     {{-- <a href="{{ route('profile') }}"
                         class="text-gray-800 bg-primary-700 hover:bg-primary-800 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">Mijn
                         profiel</a> --}}
-                    <span>
+                    <span class="lg:block hidden">
                         <a href="{{ route('profile') }}" class="block px-4">
                             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
@@ -67,7 +67,7 @@
                         </a>
                     </span>
                     <a href="{{ route('logout') }}"
-                        class="text-gray-200 dark:text-gray-200 bg-red-600 hover:bg-red-500 hover:text-white focus:ring-1 focus:ring-red-400 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-600">Log
+                        class="lg:block hidden text-gray-200 dark:text-gray-200 bg-red-600 hover:bg-red-500 hover:text-white focus:ring-1 focus:ring-red-400 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-600">Log
                         out</a>
                 @endauth
                 @guest

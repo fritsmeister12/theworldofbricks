@@ -24,7 +24,7 @@
 
 <body class="dark:bg-gray-800 bg-white">
     @include('components.navbar')
-    <div class="mx-auto container px-6 mt-24">
+    <div class="mx-auto container mt-24">
         @yield('content')
     </div>
     {{-- @include('components.highlights') --}}
