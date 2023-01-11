@@ -4,11 +4,36 @@
     <div class="p-40 bg-yellow-500 absolute top-0 left-0 w-full" style="background-color: #FFCF00"></div>
     <section>
         <div class="grid grid-cols-4 container lg:py-8 mx-auto">
-            <div class="col-span-4 justify-center z-10 my-4 lg:my-6">
+            <div class="relative rounded col-span-4 lg:h-96 h-56 w-full my-4 flex items-end justify-start text-left bg-cover bg-center"
+                style="background-image:url(https://manly.bladecdn.net/wp-content/uploads/2022/11/LEGO-Architecture-Taj-Mahal-21056-uren-bouwplezier-met-fantastich-resultaat.jpg);">
+                <div
+                    class="absolute rounded-b top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900">
+                </div>
+                <div class="absolute top-0 right-0 left-0 mx-5 mt-2 flex justify-between items-center">
+                    <a href="#"
+                        class="text-xs bg-red-600 text-white rounded px-5 py-2 uppercase hover:bg-white hover:text-indigo-600 transition ease-in-out duration-500">Taj
+                        Mahal</a>
+                    <div class="text-white font-regular flex flex-col justify-start">
+                        <span class="text-3xl leading-0 font-semibold">11</span>
+                        <span class="-mt-3">Jan</span>
+                    </div>
+                </div>
+                <main class="p-5 z-10">
+                    <h1 class="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">Al jouw favoriete Legosets
+                        op 1 plek!
+                    </h1>
+                    <p class="mt-2 text-gray-500 dark:text-gray-300">Het platform om de leukste sets
+                        maandelijks te ontvangen. Met meer
+                        dan 100+ Lego sets in ons assortiment.</p>
+                </main>
+
+            </div>
+
+            {{-- <div class="col-span-4 justify-center z-10 my-4 lg:my-6">
                 <img class="object-cover w-full h-56 lg:h-96 lg:rounded-xl"
                     src="https://manly.bladecdn.net/wp-content/uploads/2022/11/LEGO-Architecture-Taj-Mahal-21056-uren-bouwplezier-met-fantastich-resultaat.jpg" />
             </div>
-            <div class="mx-auto text-center col-span-4 px-4 max-w-lg my-6 lg:px-2">
+            <div class="mx-auto col-span-4 px-4 max-w-lg my-6 lg:px-2">
                 <h1 class="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">Al jouw favoriete Legosets
                     <br>op 1
                     plek!
@@ -33,8 +58,10 @@
                     </svg>
                 </a>
                 <p class="mt-3 text-sm text-gray-400 ">No credit card required</p>
-            </div>
+            </div> --}}
         </div>
+
+
 
     </section>
 
@@ -123,8 +150,8 @@
                                         <span class="absolute left-0 inset-y-0 flex items-center pl-3">
                                             <!-- Heroicon name: solid/lock-closed -->
                                             <svg class="h-5 w-5 text-gray-700 group-hover:text-gray-900"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor" aria-hidden="true">
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                                aria-hidden="true">
                                                 <path fill-rule="evenodd"
                                                     d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
                                                     clip-rule="evenodd" />
