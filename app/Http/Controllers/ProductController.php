@@ -16,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data = Categorie::paginate(8);
+        $data = Categorie::get();
 
         return view('products.index', compact('data'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -37,6 +37,8 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
 
-        return view('products.view', compact('product'));
+        $data = Product::where('category', $categorie)->get();
+
+        return view('products.view', compact('product', 'data'));
     }
 }

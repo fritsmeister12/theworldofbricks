@@ -9,7 +9,7 @@
                 <div class="px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
                     <div class="max-w-5xl mx-auto">
                         <header class="">
-                            <h1 class="text-xl font-bold text-gray-900 sm:text-3xl">Your Cart</h1>
+                            <h1 class="text-xl font-bold text-gray-900 sm:text-3xl dark:text-white">Your Cart</h1>
                         </header>
 
                         <div class="mt-8">
@@ -22,9 +22,10 @@
                                                 alt="" class="object-cover lg:w-24 lg:h-24 w-16 h-16 rounded" />
 
                                             <div class="ml-4">
-                                                <h3 class="text-sm text-gray-900">{{ $details['name'] }}</h3>
+                                                <h3 class="text-sm text-gray-900 dark:text-white">{{ $details['name'] }}
+                                                </h3>
 
-                                                <dl class="mt-0.5 space-y-px text-[10px] text-gray-600">
+                                                <dl class="mt-0.5 space-y-px text-[10px] text-gray-600 dark:text-gray-300">
                                                     <div>
                                                         {{-- <dt class="inline">{{ $details['category'] }}</dt> --}}
                                                         <dd class="inline">XXS</dd>
@@ -32,7 +33,8 @@
 
                                                     <div class="text-xs">
                                                         <dt class="inline">Prijs:</dt>
-                                                        <dd class="inline font-bold">€{{ $details['price'] }}</dd>
+                                                        <dd class="inline font-bold dark:text-white">
+                                                            €{{ $details['price'] }}</dd>
                                                 </dl>
                                             </div>
 
@@ -42,17 +44,18 @@
 
                                                     <input type="number" min="1" value="{{ $details['quantity'] }}"
                                                         id="quantity" onkeyup="enforceMinMax(this)"
-                                                        class="h-8 w-12 quantity rounded border-gray-200 bg-gray-50 p-0 text-center text-xs text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" />
+                                                        class="h-8 w-12 quantity rounded border-gray-200 bg-gray-200 dark:bg-gray-50 p-0 text-center text-xs text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" />
                                                 </form>
 
-                                                <button class="text-gray-600 transition update-cart hover:text-red-600"
+                                                <button
+                                                    class="text-emerald-500 transition update-cart hover:text-emerald-600"
                                                     data-id="{{ $id }}">
                                                     <span class="sr-only">Edit item</span>
 
                                                     <i class="fas fa-sync-alt"></i>
                                                 </button>
 
-                                                <button class="text-gray-600 transition remove-from-cart hover:text-red-600"
+                                                <button class="text-red-600 transition remove-from-cart hover:text-red-700"
                                                     data-id="{{ $id }}">
                                                     <span class="sr-only">Remove item</span>
 
@@ -61,6 +64,10 @@
                                             </div>
                                         </li>
                                     @endforeach
+                                @else
+                                    <h1 class="dark:text-white text-gray-900 italic">Je hebt nog niks toegevoegd aan je
+                                        mandje...
+                                    </h1>
                                 @endif
                             </ul>
 
@@ -68,8 +75,9 @@
                                 $btw = ($total / 121) * 100;
                             @endphp
                             <div class="flex justify-end pt-8 mt-8 border-t border-gray-100">
-                                <div class="w-screen max-w-lg space-y-4">
-                                    <dl class="space-y-0.5 text-sm text-gray-700">
+                                <div
+                                    class="w-screen dark:bg-gray-600 shadow-xl bg-gray-200 rounded-lg p-6 max-w-xl space-y-4">
+                                    <dl class="space-y-0.5 text-sm text-gray-700 dark:text-white">
                                         <div class="flex justify-between">
                                             <dt>Subtotal</dt>
                                             <dd>€{{ number_format($btw, 2) }}</dd>
@@ -109,10 +117,16 @@
 
                                     <div class="flex justify-end">
                                         <button type="submit"
-                                            class="block px-5 py-3 text-sm text-gray-100 transition bg-gray-700 rounded hover:bg-gray-600">
-                                            Checkout
+                                            class="block px-5 py-3 text-sm w-full text-gray-900 transition bg-yellow-400 rounded hover:bg-yellow-500">
+                                            Afrekenen
                                         </button>
+
                                     </div>
+                                    <p class="px-4 w-full flex items-center justify-center dark:text-gray-200">of<a
+                                            href="#" class="ml-1 text-indigo-900 dark:text-yellow-400 font-semibold">
+                                            Verder winkelen
+                                        </a>
+                                    </p>
                                 </div>
                             </div>
                         </div>

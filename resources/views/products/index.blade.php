@@ -4,11 +4,11 @@
     <section>
         <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
             <header>
-                <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">
+                <h2 class="text-xl font-bold text-gray-900 dark:text-white sm:text-3xl">
                     Thema's
                 </h2>
 
-                <p class="max-w-md mt-4 text-gray-500">
+                <p class="max-w-md mt-4 text-gray-500 dark:text-gray-300">
                     Ben jij opzoek naar een specifieke categorie voor een Lego set? Klik dan hier op je gewenste categorie
                     om alle Lego sets van deze categorie te zien.
                 </p>
@@ -22,11 +22,12 @@
                                 alt="" class="h-[200px] rounded w-full object-cover sm:h-[200px]" />
 
                             <div class="mt-3">
-                                <h3 class="text-sm text-gray-700 group-hover:underline group-hover:underline-offset-4">
+                                <h3
+                                    class="text-sm text-gray-700 dark:text-white group-hover:underline group-hover:underline-offset-4">
                                     {{ $categorie->categorie_naam }}
                                 </h3>
 
-                                <p class="mt-1.5 max-w-[40ch] text-xs text-gray-500">
+                                <p class="mt-1.5 max-w-[40ch] text-xs text-gray-500 dark:text-gray-300">
                                     {{ $categorie->categorie_beschrijving }}
                                 </p>
                             </div>
@@ -36,7 +37,7 @@
                 @endforeach
 
 
-                <li>
+                {{-- <li>
                     <a href="{{ route('producten-categorie', 'architecture') }}" class="block group">
                         <img src="https://www.lego.com/cdn/cs/set/assets/blt4358b3e85c8e2f41/Architecture-AllThemes-202206-Theme-Preview.jpg?fit=bounds&format=webply&quality=80&width=420&height=200&dpr=2"
                             alt="" class="h-[200px] rounded w-full object-cover sm:h-[200px]" />
@@ -112,7 +113,7 @@
                             </p>
                         </div>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </section>

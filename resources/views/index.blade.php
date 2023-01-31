@@ -2,8 +2,8 @@
 @section('title', 'Home')
 @section('content')
     <div class="p-40 bg-yellow-500 absolute top-0 left-0 w-full" style="background-color: #FFCF00"></div>
-    <section>
-        <div class="grid grid-cols-4 container lg:py-8 mx-auto">
+    <section class="mx-2 lg:mx-0">
+        <div class="grid grid-cols-4 container py-4 lg:py-8 mx-auto">
             <div class="relative rounded col-span-4 lg:h-96 h-56 w-full my-4 flex items-end justify-start text-left bg-cover bg-center"
                 style="background-image:url(https://manly.bladecdn.net/wp-content/uploads/2022/11/LEGO-Architecture-Taj-Mahal-21056-uren-bouwplezier-met-fantastich-resultaat.jpg);">
                 <div
@@ -19,10 +19,10 @@
                     </div>
                 </div>
                 <main class="p-5 z-10">
-                    <h1 class="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">Al jouw favoriete Legosets
+                    <h1 class="text-3xl font-semibold text-white lg:text-4xl">Al jouw favoriete Legosets
                         op 1 plek!
                     </h1>
-                    <p class="mt-2 text-gray-500 dark:text-gray-300">Het platform om de leukste sets
+                    <p class="mt-2 text-gray-300">Het platform om de leukste sets
                         maandelijks te ontvangen. Met meer
                         dan 100+ Lego sets in ons assortiment.</p>
                 </main>
@@ -78,12 +78,12 @@
     </div>
 
     <!-- Slider main container -->
-    <div class="swiper mx-auto w-full px-2 py-6">
+    <div class="swiper mx-auto w-full px-2 py-4">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
             <!-- Slides -->
             @foreach ($data as $key => $product)
-                @if ($product->available == true)
+                @if ($product->spotlight == 'uitgelicht')
                     <div tabindex="0" class="focus:outline-none w-72 swiper-slide xl:mb-0 mb-8">
                         <div>
                             <img alt="person capturing an image"
@@ -122,14 +122,6 @@
                                     <a href="{{ route('producten-show', [$product->category, $product->id]) }}"
                                         class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-black bg-yellow-500 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                         <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                                            <!-- Heroicon name: solid/lock-closed -->
-                                            {{-- <svg class="h-5 w-5 text-gray-700 group-hover:text-gray-900"
-                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                                            aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                                                clip-rule="evenodd" />
-                                        </svg> --}}
                                             <svg width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round"
                                                 stroke-linejoin="round" stroke-width="2" class="w-4">
                                                 <polyline fill="none" stroke="currentColor" stroke-miterlimit="10"
@@ -148,7 +140,6 @@
                                     <a href="{{ route('producten.show', $product->id) }}"
                                         class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                         <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                                            <!-- Heroicon name: solid/lock-closed -->
                                             <svg class="h-5 w-5 text-gray-700 group-hover:text-gray-900"
                                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                                 aria-hidden="true">
@@ -163,6 +154,73 @@
                             </div>
                         </div>
                     </div>
+                    {{-- <a href="#"
+                        class="block rounded-lg p-4 bg-gray-100/75 swiper-slide shadow-lg shadow-indigo-900/10">
+                        <img alt="Home"
+                            src="{{ url('http://back-lego.test/storage/images/products/' . $product->image_thumbnail) }}"
+                            class="h-56 w-full rounded-md object-cover" />
+
+                        <div class="mt-2">
+                            <dl>
+                                <div>
+                                    <dt class="sr-only">Prijs</dt>
+
+                                    <dd class="text-sm text-gray-500">€{{ $product->price }} - {{ $product->available }}
+                                    </dd>
+                                </div>
+
+                                <div>
+                                    <dt class="sr-only">Naam</dt>
+
+                                    <dd class="font-medium">{{ $product->name }}</dd>
+                                </div>
+                            </dl>
+
+                            <div class="mt-4 flex items-center gap-2 text-xs">
+                                <div class="sm:inline-flex sm:shrink-0 sm:items-center">
+                                    <svg class="h-4 w-4 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
+                                    </svg>
+
+                                    <div class="mt-1.5 sm:ml-3 sm:mt-0">
+                                        <p class="text-gray-500">Steentjes</p>
+
+                                        <p class="font-medium">{{ $product->bricks_amount }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="sm:inline-flex sm:shrink-0 sm:items-center">
+                                    <svg class="h-4 w-4 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                                    </svg>
+
+                                    <div class="mt-1.5 sm:ml-3 sm:mt-0">
+                                        <p class="text-gray-500">Setnummer</p>
+
+                                        <p class="font-medium">#12345</p>
+                                    </div>
+                                </div>
+
+                                <div class="sm:inline-flex sm:shrink-0 sm:items-center">
+                                    <svg class="h-4 w-4 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                                    </svg>
+
+                                    <div class="mt-1.5 sm:ml-3 sm:mt-0">
+                                        <p class="text-gray-500">Leeftijd</p>
+
+                                        <p class="font-medium">18+</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a> --}}
                 @endif
             @endforeach
         </div>
@@ -174,7 +232,7 @@
         <div class="swiper-button-next text-gray-500 opacity-20 hover:opacity-100 mr-2"></div>
     </div>
 
-    <section class="m-8 mb-16 dark:bg-gray-800 dark:text-gray-100">
+    {{-- <section class="m-8 mb-16 dark:bg-gray-800 dark:text-gray-100">
         <div class="container mx-auto p-4 my-6 space-y-2 text-center">
             <h2 class="text-5xl font-bold">Waarom ons?</h2>
             <p class="dark:text-gray-400">Libero minima optio qui</p>
@@ -223,7 +281,40 @@
                 </div>
             </div>
         </div>
+    </section> --}}
+
+    <section
+        class="overflow-hidden mx-2 lg:mx-0 rounded h-full mb-8 lg:my-8 bg-[url(http://back-lego.test/storage/images/products/tajmahal.jpg)] bg-cover bg-no-repeat"
+        style="background-position: 100% 70%;transform: rotateY(180deg);">
+        <div class="bg-black/25 p-8 md:p-12 lg:px4 lg:py-12" style="transform: rotateY(-180deg);">
+            <div class="max-w-xl text-center sm:text-left">
+
+                <h2 class="text-2xl max-w-xl font-bold text-white sm:text-3xl md:text-5xl">
+                    Nieuw in ons assortiment, de Taj Mahal!
+                </h2>
+
+                <p class="hidden max-w-xl text-white/90 md:mt-6 md:block md:text-lg md:leading-relaxed">
+                    Wil jij de eeuwen oude tempel uit India bouwen? Leer meer over de Taj Mahal en haal veel plezier uit het
+                    bouwen.
+                </p>
+
+                <div class="mt-4 sm:mt-8">
+                    <a href="#"
+                        class="inline-flex items-center rounded-full bg-red-600 px-8 py-3 text-white shadow-lg transition hover:bg-indigo-600 focus:outline-none focus:ring">
+                        <span class="text-sm font-medium"> Bekijk het hier </span>
+
+                        <svg class="ml-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
+
+
 
     {{-- Uitgelicht --}}
     <div class="px-4 md:px-6 2xl:px-0 2xl:mx-auto 2xl:container flex justify-center items-center">
@@ -238,12 +329,12 @@
     </div>
 
     <!-- Slider main container -->
-    <div class="swiper mx-auto w-full px-2 py-6 mb-12">
+    <div class="swiper mx-auto w-full px-2 py-4 mb-12">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
             <!-- Slides -->
             @foreach ($data as $key => $product)
-                @if ($product->available == true)
+                @if ($product->spotlight == 'nieuw')
                     <div tabindex="0" class="focus:outline-none w-72 swiper-slide xl:mb-0 mb-8">
                         <div>
                             <img alt="person capturing an image"
@@ -309,7 +400,6 @@
         <div class="swiper-button-prev text-gray-500 opacity-20 hover:opacity-100 ml-2"></div>
         <div class="swiper-button-next text-gray-500 opacity-20 hover:opacity-100 mr-2"></div>
     </div>
-    @include('components.highlights')
 
     <script>
         const swiper = new Swiper('.swiper', {

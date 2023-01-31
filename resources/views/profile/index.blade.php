@@ -1,10 +1,7 @@
 @extends('components.master')
 @section('title', 'Registreren')
 @section('content')
-    <link rel="stylesheet"
-        href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
-
-    <section class="text-gray-600 body-font">
+    {{-- <section class="text-gray-600 body-font">
         <div class="container px-5 py-12 mx-auto flex flex-col">
             <div class="lg:w-4/6 mx-auto">
                 <div class="flex flex-col sm:flex-row mt-10">
@@ -41,12 +38,7 @@
                             <h3 class="text-black text-lg font-bold">Postcode</h3>
                             <p class="leading-relaxed text-lg mb-4">Niet bekend!</p>
                         @endif
-                        {{-- <a href="/" class="inline-flex items-center" style="color:#d01012">Aanpassen
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a> --}}
+
                     </div>
                 </div>
             </div>
@@ -92,9 +84,132 @@
                                 <path d="M5 12h14M12 5l7 7-7 7"></path>
                             </svg>
                         </a>
-                    </div>
-                @endforeach
+                    </div> @endforeach
             </div>
         </div>
-    </section>
+    </section> --}}
+    <div class="w-full
+        mx-auto py-12">
+        <div class="flex flex-wrap -mx-3">
+
+
+            <div class="w-full max-w-full px-3 shrink-0 md:w-8/12 md:flex-0">
+                <div
+                    class="relative flex flex-col min-w-0 break-words bg-white dark:bg-slate-700 border-0 shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
+                    <div class="border-black/12.5 rounded-t-2xl border-b-0 border-solid py-4 px-6 pb-0">
+                        <div class="flex items-center">
+                            <p class="mb-0 dark:text-white/80">Klant Gegevens</p>
+                            <button type="button"
+                                class="inline-block px-8 py-2 mb-4 ml-auto font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-yellow-500 border-0 rounded-lg shadow-md cursor-pointer text-xs tracking-tight-rem hover:shadow-xs hover:-translate-y-px active:opacity-85">Wijzig</button>
+                        </div>
+                    </div>
+                    <div class="flex-auto px-6 pb-6 pt-2">
+                        <p class="leading-normal uppercase dark:text-white dark:opacity-60 text-sm">Klant
+                            Informatie</p>
+                        <div class="flex flex-wrap -mx-3">
+
+                            <div class="w-full max-w-full px-3 shrink-0 md:w-1/3 md:flex-0">
+                                <div class="mb-4">
+                                    <label for="first name"
+                                        class="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Naam</label>
+                                    <input type="text" name="first name" value="{{ $customer->name }}" disabled
+                                        class="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm dark:bg-slate-600 leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-yellow-500 focus:outline-none" />
+                                </div>
+                            </div>
+                            <div class="w-full max-w-full px-3 shrink-0 md:w-1/3 md:flex-0">
+                                <div class="mb-4">
+                                    <label for="email"
+                                        class="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Email
+                                        adres</label>
+                                    <input type="email" name="email" value="{{ $customer->email }}" disabled
+                                        class="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white dark:bg-slate-600 text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-yellow-500 focus:outline-none" />
+                                </div>
+                            </div>
+                            <div class="w-full max-w-full px-3 shrink-0 md:w-1/3 md:flex-0">
+                                <div class="mb-4">
+                                    <label for="last name"
+                                        class="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Telefoonnummer</label>
+                                    <input type="text" name="last name" value="Lucky" disabled
+                                        class="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm dark:bg-slate-600 leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-yellow-500 focus:outline-none" />
+                                </div>
+                            </div>
+                        </div>
+                        <hr
+                            class="h-px mx-0 my-4 bg-transparent border-0 opacity-25 bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent " />
+
+                        <p class="leading-normal uppercase dark:text-white dark:opacity-60 text-sm">Verzend
+                            Informatie</p>
+                        <div class="flex flex-wrap -mx-3">
+                            <div class="w-full max-w-full px-3 shrink-0 md:w-full md:flex-0">
+                                <div class="mb-4">
+                                    <label for="address"
+                                        class="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Address</label>
+                                    <input type="text" name="address" disabled
+                                        value="{{ $customer->shipping->address->line1g }}"
+                                        class="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm dark:bg-slate-600 leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-yellow-500 focus:outline-none" />
+                                </div>
+                            </div>
+                            <div class="w-full max-w-full px-3 shrink-0 md:w-1/2 md:flex-0">
+                                <div class="mb-4">
+                                    <label for="city"
+                                        class="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">City</label>
+                                    <input type="text" name="city" value="{{ $customer->shipping->address->city }}"
+                                        disabled
+                                        class="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm dark:bg-slate-600 leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-yellow-500 focus:outline-none" />
+                                </div>
+                            </div>
+
+                            <div class="w-full max-w-full px-3 shrink-0 md:w-1/2 md:flex-0">
+                                <div class="mb-4">
+                                    <label for="postal code"
+                                        class="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Postal
+                                        code</label>
+                                    <input type="text" name="postal code"
+                                        value="{{ $customer->shipping->address->postal_code }}"
+                                        class="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm dark:bg-slate-600 leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-yellow-500 focus:outline-none" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full max-w-full px-3 lg:w-1/3 lg:flex-none">
+                <div
+                    class="relative flex flex-col pb-2 h-content min-w-0 break-words bg-white dark:bg-slate-700 border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
+                    <div class="p-4 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
+                        <div class="flex flex-wrap -mx-3">
+                            <div class="flex items-center flex-none w-1/2 max-w-full px-3">
+                                <h6 class="mb-0 dark:text-white">Producten</h6>
+                            </div>
+                            <div class="flex-none w-1/2 max-w-full px-3 text-right">
+                                <p
+                                    class="inline-block px-8 py-2 mb-0 text-xs font-bold leading-normal text-center text-yellow-500 align-middle transition-all ease-in bg-transparent border border-yellow-500 border-solid rounded-lg shadow-none cursor-default bg-150 active:opacity-85 hover:-translate-y-px tracking-tight-rem bg-x-25 hover:opacity-75">
+                                    2
+                                    Items</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-auto p-4 pb-0">
+                        <ul class="flex flex-col pl-0 mb-0 rounded-lg">
+                            <li
+                                class="relative flex justify-between px-4 py-2 pl-0 mb-2 border-0 rounded-t-inherit text-inherit rounded-xl">
+                                <div class="flex flex-col">
+                                    <h6 class="mb-1 text-sm font-semibold leading-normal dark:text-white text-slate-700">
+                                        Racing Stuur</h6>
+                                    <span class="text-xs leading-tight dark:text-white dark:opacity-80">Aantal:
+                                        10x</span>
+                                </div>
+                                <div class="flex items-center text-sm leading-normal dark:text-white/80">
+                                    €120
+                                    <button
+                                        class="dark:text-white inline-block px-0 py-2.5 mb-0 ml-6 font-bold leading-normal text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-in bg-150 text-xs active:opacity-85 hover:-translate-y-px tracking-tight-rem bg-x-25 text-slate-700">
+                                        <i class="fas fa-link mr-1"></i>Bekijk</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

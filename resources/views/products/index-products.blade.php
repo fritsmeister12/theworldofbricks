@@ -48,7 +48,7 @@
                     </p>
                 </header>
 
-                <div class="mt-8 sm:flex sm:items-center sm:justify-between">
+                {{-- <div class="mt-8 sm:flex sm:items-center sm:justify-between">
                     <div class="block sm:hidden">
                         <button
                             class="flex items-center gap-2 pb-1 text-gray-900 transition border-b border-gray-400 cursor-pointer hover:border-gray-600">
@@ -288,17 +288,23 @@
                             <option value="Price, ASC">Price, ASC</option>
                         </select>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 mt-8">
                     @foreach ($data as $key => $product)
                         @if ($product == true)
                             <div tabindex="0" class="focus:outline-none mx-2 mb-4 cursor-pointer"
-                                onclick="location.href='{{ route('producten-show', [$product->category, $product->id]) }}g';">
+                                onclick="location.href='{{ route('producten-show', [$product->category, $product->id]) }}';">
                                 <div>
-                                    <img alt="person capturing an image"
-                                        src="{{ url('http://back-lego.test/storage/images/products/' . $product->image_thumbnail) }}"
-                                        tabindex="0" class="focus:outline-none object-cover rounded-t w-full h-44" />
+                                    @if ($product->images != null)
+                                        @foreach (json_decode($product->images) as $item)
+                                            @if (str_contains($item, '_thumbnail'))
+                                                <img alt="person capturing an image"
+                                                    src="{{ url('http://back-lego.test/image/' . $item) }}" tabindex="0"
+                                                    class="focus:outline-none object-cover rounded-t w-full h-44" />
+                                            @endif
+                                        @endforeach
+                                    @endif
                                 </div>
                                 <div class="bg-gray-100 shadow-lg rounded-b dark:bg-slate-700">
                                     <div class="p-4">
@@ -338,31 +344,14 @@
                                                 €{{ $product->price }}
                                             </h3>
                                         </div>
-                                        @if ($product->sellable == '1')
-                                            <a href="{{ route('producten-show', [$product->category, $product->id]) }}"
-                                                class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                                <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                                                    <!-- Heroicon name: solid/lock-closed -->
-                                                    <i class="fas fa-cash-register dark:text-gray-700"></i>
-                                                </span>
-                                                Kopen
-                                            </a>
-                                        @else
-                                            <a href="{{ route('producten.show', $product->id) }}"
-                                                class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                                <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                                                    <!-- Heroicon name: solid/lock-closed -->
-                                                    <svg class="h-5 w-5 text-gray-700 group-hover:text-gray-900"
-                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                        fill="currentColor" aria-hidden="true">
-                                                        <path fill-rule="evenodd"
-                                                            d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                                                            clip-rule="evenodd" />
-                                                    </svg>
-                                                </span>
-                                                Huren
-                                            </a>
-                                        @endif
+                                        <a href="{{ route('producten-show', [$product->category, $product->id]) }}"
+                                            class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                            <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                                                <!-- Heroicon name: solid/lock-closed -->
+                                                <i class="fas fa-cash-register dark:text-gray-700"></i>
+                                            </span>
+                                            Kopen
+                                        </a>
                                     </div>
                                 </div>
                             </div>

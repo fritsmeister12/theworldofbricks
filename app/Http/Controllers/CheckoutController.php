@@ -32,14 +32,23 @@ class CheckoutController extends Controller
     {
         $email = auth()->user()->email;
 
+        $order = Order::where('user_id', auth()->user()->id)->first();
+
+        // $orderitems = json_decode($order->product_name);
 
         $maildata = [
             'title' => 'Laravel Mail Sending Example with Markdown',
-            'url' => 'http://www.theworldofbricks.nl'
+            'url' => 'http://www.theworldofbricks.nl',
+            'orderID' => $order->id,
+            'username' => auth()->user()->name,
+            'orderItems' => json_decode($order->product_name),
         ];
 
-        Mail::to($email)->send(new PaymentConfirm($maildata));
-        // return (new PaymentConfirm($maildata))->render();
+        // Mail::to($email)->send(new PaymentConfirm($maildata));
+        return (new PaymentConfirm($maildata))->render();
+
+
+
         return view('checkout.succes');
     }
 
@@ -72,15 +81,24 @@ class CheckoutController extends Controller
         $prods_id = array();
         $prices_id = array();
         $prods_name = array();
+        $prod_prices = array();
+        $prod_quantity = array();
+
+        $totalprice = 0;
 
         if (session('cart')) {
             foreach (session('cart') as $id => $details) {
                 array_push($line_items_array, ['price' => $details['price_id'], 'quantity' => $details['quantity']]);
                 array_push($prods_id, $details['prod_id']);
+                array_push($prod_prices, $details['price']);
                 array_push($prices_id, $details['price_id']);
                 array_push($prods_name, $details['name']);
+                array_push($prod_quantity, $details['quantity']);
+                $totalprice += $details['price'] * $details['quantity'];
             }
         }
+
+        // dd($totalprice);
 
         // dd($prods_name);
 
@@ -102,8 +120,8 @@ class CheckoutController extends Controller
             'line_items' => [[$line_items_array]],
             'mode' => 'payment',
             'customer' => $data[0]->cus_id,
-            'success_url' => 'http://front-lego.test' . '/succes',
-            'cancel_url' => 'http://front-lego.test' . '/cancel',
+            'success_url' => $_ENV['APP_URL'] . '/succes',
+            'cancel_url' => $_ENV['APP_URL'] . '/winkelmandje',
         ]);
 
 
@@ -117,7 +135,11 @@ class CheckoutController extends Controller
             'order_status' => 'Geen bevestiging ontvangen',
             'prod_id' => json_encode($prods_id),
             'price_id' => json_encode($prices_id),
+            'product_prices' => json_encode($prod_prices),
+            'product_quantity' => json_encode($prod_quantity),
+            'total_price' => $totalprice,
             'user_id' => auth()->user()->id,
+
         ]);
 
         header("HTTP/1.1 303 See Other");

@@ -42,33 +42,50 @@
                 <div class="relative max-w-screen-xl px-4 py-8 mx-auto">
                     <div class="grid items-start grid-cols-1 gap-8 md:grid-cols-2">
                         <div class="grid grid-cols-2 gap-4 md:grid-cols-1">
-                            <img alt="Les Paul"
-                                src="{{ url('http://back-lego.test/storage/images/products/' . $product->image_thumbnail) }}"
-                                class="object-cover w-full aspect-square rounded-xl" />
+                            @foreach (json_decode($product->images) as $item)
+                                @if (str_contains($item, '_thumbnail'))
+                                    <img alt="person capturing an image"
+                                        src="{{ url('http://back-lego.test/image/' . $item) }}" tabindex="0"
+                                        class="object-contain w-full aspect-square rounded-xl" />
+                                @endif
+                            @endforeach
+
 
                             <div class="grid grid-cols-2 gap-4 lg:mt-4">
-                                <img alt="Les Paul"
-                                    src="https://images.unsplash.com/photo-1456948927036-ad533e53865c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                                    class="object-cover w-full aspect-square rounded-xl" />
-
-                                <img alt="Les Paul"
-                                    src="https://images.unsplash.com/photo-1456948927036-ad533e53865c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                                    class="object-cover w-full aspect-square rounded-xl" />
+                                @php
+                                    $i = 0;
+                                @endphp
+                                @foreach (json_decode($product->images) as $item)
+                                    @if (!str_contains($item, '_thumbnail'))
+                                        @php
+                                            if ($i == 2) {
+                                                break;
+                                            }
+                                            
+                                        @endphp
+                                        <img alt="person capturing an image"
+                                            src="{{ url('http://back-lego.test/image/' . $item) }}" tabindex="0"
+                                            class="object-contain w-full aspect-square rounded-xl" />
+                                        @php
+                                            $i++;
+                                        @endphp
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
 
                         <div class="sticky top-36">
                             <strong
-                                class="rounded-full border border-green-600 bg-gray-100 px-3 py-0.5 text-xs font-medium tracking-wide text-green-600">
+                                class="rounded-full border border-green-600 bg-green-600 px-3 py-0.5 text-xs font-medium tracking-wide text-white">
                                 {{ $product->voorraad }}
                             </strong>
                             <div class="flex justify-between mt-8">
                                 <div class="max-w-[35ch]">
-                                    <h1 class="text-2xl font-bold">
+                                    <h1 class="text-2xl dark:text-white font-bold">
                                         {{ $product->name }}
                                     </h1>
 
-                                    <p class="mt-0.5 text-sm">{{ $product->category }}</p>
+                                    <p class="mt-0.5 dark:text-gray-200 text-sm">{{ $product->category }}</p>
 
                                     {{-- <div class="mt-2 -ml-0.5 flex">
                                         <svg class="w-5 h-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +126,7 @@
                             <details class="group relative my-4">
                                 <summary class="block">
                                     <div>
-                                        <div class="prose max-w-none group-open:hidden">
+                                        <div class="max-w-none dark:text-gray-300">
                                             <p>
                                                 {{ $product->description }}
                                             </p>
@@ -120,14 +137,14 @@
 
                             <form class="mt-8">
                                 <fieldset>
-                                    <legend class="mb-1 text-sm font-medium">Specificaties</legend>
+                                    <legend class="mb-1 text-sm dark:text-white font-medium">Specificaties</legend>
                                     <div class="flow-root lg:w-3/4">
                                         <div class="-m-0.5 flex flex-wrap">
                                             <label for="color_tt" class="p-0.5">
                                                 <input type="radio" name="color" id="color_tt" class="sr-only" />
 
                                                 <span
-                                                    class="inline-block px-3 py-1 text-xs font-medium border rounded group">
+                                                    class="inline-block px-3 py-1 text-white text-xs bg-red-600 border-red-600 font-medium border rounded group">
                                                     Productnummer: #{{ $product->set_number }}
                                                 </span>
                                             </label>
@@ -136,14 +153,14 @@
                                                 <input type="radio" name="color" id="color_fr" class="sr-only" />
 
                                                 <span
-                                                    class="inline-block px-3 py-1 text-xs font-medium border rounded group">
+                                                    class="inline-block px-3 py-1 text-xs font-medium border text-white bg-red-600 border-red-600 rounded group">
                                                     Aantal Blokjes: {{ $product->bricks_amount }}
                                                 </span>
                                             </label>
 
                                             <div class="p-0.5">
                                                 <span
-                                                    class="inline-block px-3 py-1 text-xs font-medium border rounded group">
+                                                    class="inline-block px-3 py-1 text-xs font-medium text-white border-red-600 bg-red-600 border rounded group">
                                                     Lengte:
                                                     {{ $product->length }}
                                                     cm
@@ -151,13 +168,13 @@
                                             </div>
                                             <div class="p-0.5">
                                                 <span
-                                                    class="inline-block px-3 py-1 text-xs font-medium border rounded group">
+                                                    class="inline-block px-3 py-1 text-xs text-white border-red-600 bg-red-600 font-medium border rounded group">
                                                     Breedte: {{ $product->width }} cm
                                                 </span>
                                             </div>
                                             <div class="p-0.5">
                                                 <span
-                                                    class="inline-block px-3 py-1 text-xs font-medium border rounded group">
+                                                    class="inline-block px-3 py-1 text-xs text-white bg-red-600 border-red-600 font-medium border rounded group">
                                                     Hoogte: {{ $product->height }}
                                                     cm
                                                 </span>
@@ -168,10 +185,6 @@
                             </form>
 
                             <div class="flex mt-6 space-x-2 text-center border-b border-gray-200 pb-6">
-                                <button type="submit"
-                                    class="block px-5 w-full py-3 text-xs font-medium text-white bg-red-600 rounded hover:bg-red-700">
-                                    Direct Kopen
-                                </button>
                                 <a href="{{ url('winkelmandje/' . $product->id) }}"
                                     class="block px-5 py-3 w-full text-xs font-medium text-white bg-yellow-500 rounded hover:bg-yellow-600">
                                     In Winkelmand</a>
@@ -179,20 +192,21 @@
 
                             <div class="mt-4">
                                 <ul>
-                                    <li class="mb-2 ">
+                                    <li class="mb-2 dark:text-white">
                                         <i class="fas fa-check-circle text-red-600"></i>
-                                        <span class="font-bold">Gratis verzending</span> in Nederland en België.
+                                        <span class="font-bold text-red-600">Gratis verzending</span> in Nederland en
+                                        België.
                                     </li>
-                                    <li class="mb-2 ">
+                                    <li class="mb-2 dark:text-white">
                                         <i class="fas fa-check-circle text-red-600"></i>
                                         Bezorging waar en wanneer je wilt.
                                         Thuisbezorgd of afhalen op 2400 locaties.
                                     </li>
-                                    <li class="mb-2 ">
+                                    <li class="mb-2 dark:text-white">
                                         <i class="fas fa-check-circle text-red-600"></i>
                                         Gemakkelijk betalen met iDeal.
                                     </li>
-                                    <li class="mb-2 ">
+                                    <li class="mb-2 dark:text-white">
                                         <i class="fas fa-check-circle text-red-600"></i>
                                         Klanten waarderen ons met een 9.5
                                         op basis van 3915 onafhankelijke reviews.
@@ -212,93 +226,278 @@
                         <p class="font-light text-gray-500 sm:text-md dark:text-gray-400">Bekijk hier andere populaire
                             sets!</p>
                     </div>
-                    <div class="grid gap-8 lg:grid-cols-2">
-                        <article
-                            class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                            <div class="flex justify-between items-center mb-5 text-gray-500">
-                                <span
-                                    class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
-                                    <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z">
-                                        </path>
-                                    </svg>
-                                    Tutorial
-                                </span>
-                                <span class="text-sm">14 days ago</span>
-                            </div>
-                            <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><a
-                                    href="#">How to quickly deploy a static website</a></h2>
-                            <p class="mb-5 font-light text-gray-500 dark:text-gray-400">Static websites are now used to
-                                bootstrap lots of websites and are becoming the basis for a variety of tools that even
-                                influence both web designers and developers influence both web designers and developers.</p>
-                            <div class="flex justify-between items-center">
-                                <div class="flex items-center space-x-4">
-                                    <img class="w-7 h-7 rounded-full"
-                                        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-                                        alt="Jese Leos avatar" />
-                                    <span class="font-medium dark:text-white">
-                                        Jese Leos
-                                    </span>
+                    <div class="swiper mx-auto w-full px-2 py-4">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            @foreach ($data as $key => $product)
+                                {{-- <div tabindex="0" class="focus:outline-none w-72 swiper-slide xl:mb-0 mb-8">
+                                        <div>
+                                            <img alt="person capturing an image"
+                                                src="{{ url('http://back-lego.test/storage/images/products/' . $product->image_thumbnail) }}"
+                                                tabindex="0"
+                                                class="focus:outline-none object-cover rounded-t w-full h-44" />
+                                        </div>
+                                        <div class="bg-gray-100 shadow-lg rounded-b dark:bg-slate-700">
+                                            <div class="p-4">
+                                                <div class="flex items-center">
+                                                    <h2 tabindex="0"
+                                                        class="focus:outline-none text-lg dark:text-white font-semibold">
+                                                        {{ $product->name }}
+                                                    </h2>
+                                                </div>
+                                                <p tabindex="0"
+                                                    class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 mt-2">
+                                                    {{ Str::limit($product->description, 150) }}</p>
+                                                <div class="flex mt-4">
+                                                    <div>
+                                                        <p tabindex="0"
+                                                            class="focus:outline-none text-xs text-gray-600 rounded dark:text-gray-200 px-2 bg-gray-300 dark:bg-slate-600 py-1">
+                                                            {{ $product->category }}</p>
+                                                    </div>
+                                                    <div class="pl-2">
+                                                        <p tabindex="0"
+                                                            class="focus:outline-none text-xs text-gray-600 rounded dark:text-gray-200 px-2 bg-gray-300 dark:bg-slate-600 py-1">
+                                                            {{ $product->bricks_amount }} Blokjes</p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex items-center justify-between py-4">
+                                                    <h2 tabindex="0"
+                                                        class="focus:outline-none text-yellow-500 text-xs font-semibold">3
+                                                        Beschikbaar</h2>
+                                                    <h3 tabindex="0"
+                                                        class="focus:outline-none text-yellow-500 text-xl font-semibold">
+                                                        €{{ $product->price }}
+                                                    </h3>
+                                                </div>
+                                                @if ($product->sellable = 1)
+                                                    <a href="{{ route('producten-show', [$product->category, $product->id]) }}"
+                                                        class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-black bg-yellow-500 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                                        <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                                                            <svg width="24" height="24" viewBox="0 0 24 24"
+                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2" class="w-4">
+                                                                <polyline fill="none" stroke="currentColor"
+                                                                    stroke-miterlimit="10" points="4,4 22,4 19,14 4,14 ">
+                                                                </polyline>
+                                                                <circle cx="4" cy="22" r="2"
+                                                                    stroke-linejoin="miter" stroke-linecap="square"
+                                                                    stroke="none" fill="currentColor"></circle>
+                                                                <circle cx="20" cy="22" r="2"
+                                                                    stroke-linejoin="miter" stroke-linecap="square"
+                                                                    stroke="none" fill="currentColor"></circle>
+                                                                <polyline fill="none" stroke="currentColor"
+                                                                    stroke-miterlimit="10"
+                                                                    points="1,1 4,4 4,14 2,18 23,18 "></polyline>
+                                                            </svg>
+                                                        </span>
+                                                        Kopen
+                                                    </a>
+                                                @else
+                                                    <a href="{{ route('producten.show', $product->id) }}"
+                                                        class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                                        <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                                                            <svg class="h-5 w-5 text-gray-700 group-hover:text-gray-900"
+                                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                                fill="currentColor" aria-hidden="true">
+                                                                <path fill-rule="evenodd"
+                                                                    d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                                                                    clip-rule="evenodd" />
+                                                            </svg>
+                                                        </span>
+                                                        Huren
+                                                    </a>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div> --}}
+
+
+                                <div
+                                    class="w-full max-w-sm swiper-slide  bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+                                    <a href="#">
+                                        @foreach (json_decode($product->images) as $item)
+                                            @if (str_contains($item, '_thumbnail'))
+                                                <img alt="person capturing an image"
+                                                    src="{{ url('http://back-lego.test/image/' . $item) }}"
+                                                    tabindex="0"
+                                                    class="focus:outline-none object-contain rounded-t w-full h-44" />
+                                            @endif
+                                        @endforeach
+                                    </a>
+                                    <div class="px-5 pt-4 pb-5 ">
+                                        <a href="#">
+                                            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                                                {{ $product->name }}</h5>
+                                        </a>
+                                        <p class="text-sm h-16 text-gray-700">
+                                            {{ Str::limit($product->description, 100) }}
+                                        </p>
+                                        <div class="flex items-center mt-2.5 mb-5">
+                                            <span
+                                                class="bg-yellow-400 text-red-600 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-400 dark:text-yellow-400">{{ $product->voorraad }}
+                                                jaa</span>
+                                        </div>
+                                        <div class="flex items-center justify-between">
+                                            <span
+                                                class="text-3xl font-bold text-gray-900 dark:text-white">€{{ $product->price }}</span>
+                                            <a href="#"
+                                                class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Bekijk
+                                                hier</a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <a href="#"
-                                    class="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
-                                    Read more
-                                    <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                </a>
-                            </div>
-                        </article>
-                        <article
-                            class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                            <div class="flex justify-between items-center mb-5 text-gray-500">
-                                <span
-                                    class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
-                                    <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z"
-                                            clip-rule="evenodd"></path>
-                                        <path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z"></path>
-                                    </svg>
-                                    Article
-                                </span>
-                                <span class="text-sm">14 days ago</span>
-                            </div>
-                            <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><a
-                                    href="#">Our first project with React</a></h2>
-                            <p class="mb-5 font-light text-gray-500 dark:text-gray-400">Static websites are now used to
-                                bootstrap lots of websites and are becoming the basis for a variety of tools that even
-                                influence both web designers and developers influence both web designers and developers.</p>
-                            <div class="flex justify-between items-center">
-                                <div class="flex items-center space-x-4">
-                                    <img class="w-7 h-7 rounded-full"
-                                        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
-                                        alt="Bonnie Green avatar" />
-                                    <span class="font-medium dark:text-white">
-                                        Bonnie Green
-                                    </span>
-                                </div>
-                                <a href="#"
-                                    class="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
-                                    Read more
-                                    <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                </a>
-                            </div>
-                        </article>
+
+
+                                {{-- <a href="#"
+                                        class="block rounded-lg p-4 bg-gray-100/75 swiper-slide shadow-lg shadow-indigo-900/10">
+                                        <img alt="Home"
+                                            src="{{ url('http://back-lego.test/storage/images/products/' . $product->image_thumbnail) }}"
+                                            class="h-56 w-full rounded-md object-cover" />
+                
+                                        <div class="mt-2">
+                                            <dl>
+                                                <div>
+                                                    <dt class="sr-only">Prijs</dt>
+                
+                                                    <dd class="text-sm text-gray-500">€{{ $product->price }} - {{ $product->available }}
+                                                    </dd>
+                                                </div>
+                
+                                                <div>
+                                                    <dt class="sr-only">Naam</dt>
+                
+                                                    <dd class="font-medium">{{ $product->name }}</dd>
+                                                </div>
+                                            </dl>
+                
+                                            <div class="mt-4 flex items-center gap-2 text-xs">
+                                                <div class="sm:inline-flex sm:shrink-0 sm:items-center">
+                                                    <svg class="h-4 w-4 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                            d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
+                                                    </svg>
+                
+                                                    <div class="mt-1.5 sm:ml-3 sm:mt-0">
+                                                        <p class="text-gray-500">Steentjes</p>
+                
+                                                        <p class="font-medium">{{ $product->bricks_amount }}</p>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="sm:inline-flex sm:shrink-0 sm:items-center">
+                                                    <svg class="h-4 w-4 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                                                    </svg>
+                
+                                                    <div class="mt-1.5 sm:ml-3 sm:mt-0">
+                                                        <p class="text-gray-500">Setnummer</p>
+                
+                                                        <p class="font-medium">#12345</p>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="sm:inline-flex sm:shrink-0 sm:items-center">
+                                                    <svg class="h-4 w-4 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                                                    </svg>
+                
+                                                    <div class="mt-1.5 sm:ml-3 sm:mt-0">
+                                                        <p class="text-gray-500">Leeftijd</p>
+                
+                                                        <p class="font-medium">18+</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a> --}}
+                            @endforeach
+                        </div>
+                        <!-- If we need pagination -->
+                        <div class="swiper-pagination"></div>
+
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev text-gray-500 opacity-20 hover:opacity-100 ml-2"></div>
+                        <div class="swiper-button-next text-gray-500 opacity-20 hover:opacity-100 mr-2"></div>
                     </div>
                 </div>
             </section>
         </div>
     </form>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            // Optional parameters
+            direction: 'horizontal',
+            spaceBetween: 30,
+            loop: true,
+            breakpoints: {
+                // when window width is >= 320px
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20
+                },
+                // when window width is >= 480px
+                480: {
+                    slidesPerView: 2,
+                    spaceBetween: 30
+                },
+                // when window width is >= 640px
+                960: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                },
+                // when window width is >= 640px
+                1340: {
+                    slidesPerView: 4,
+                    spaceBetween: 25
+                }
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+        const swiper2 = new Swiper('.swiper2', {
+            // Optional parameters
+            direction: 'horizontal',
+            spaceBetween: 30,
+            loop: true,
+            breakpoints: {
+                // when window width is >= 320px
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20
+                },
+                // when window width is >= 480px
+                480: {
+                    slidesPerView: 2,
+                    spaceBetween: 30
+                },
+                // when window width is >= 640px
+                960: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                },
+                // when window width is >= 640px
+                1340: {
+                    slidesPerView: 2,
+                    spaceBetween: 25
+                }
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
 @endsection
