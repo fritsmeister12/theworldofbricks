@@ -18,7 +18,7 @@
                 @foreach ($data as $categorie)
                     <li>
                         <a href="{{ route('producten-categorie', $categorie->categorie_slug) }}" class="block group">
-                            <img src="https://www.lego.com/cdn/cs/set/assets/blt4358b3e85c8e2f41/Architecture-AllThemes-202206-Theme-Preview.jpg?fit=bounds&format=webply&quality=80&width=420&height=200&dpr=2"
+                            <img src="{{ url($categorie->categorie_foto) }}"
                                 alt="" class="h-[200px] rounded w-full object-cover sm:h-[200px]" />
 
                             <div class="mt-3">

@@ -10,7 +10,8 @@
     {{-- <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png"> --}}
     <link rel="manifest" href="images/site.webmanifest">
     <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
