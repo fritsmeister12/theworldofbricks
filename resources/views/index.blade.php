@@ -84,150 +84,52 @@
             <!-- Slides -->
             @foreach ($data as $key => $product)
                 @if ($product->spotlight == 'uitgelicht')
-                    <div tabindex="0" class="focus:outline-none w-72 swiper-slide xl:mb-0 mb-8">
-                        <div>
-                            <img alt="person capturing an image"
-                                src="{{ url('http://back-lego.test/storage/images/products/' . $product->image_thumbnail) }}"
-                                tabindex="0" class="focus:outline-none object-cover rounded-t w-full h-44" />
-                        </div>
-                        <div class="bg-gray-100 shadow-lg rounded-b dark:bg-slate-700">
-                            <div class="p-4">
-                                <div class="flex items-center">
-                                    <h2 tabindex="0" class="focus:outline-none text-lg dark:text-white font-semibold">
-                                        {{ $product->name }}
-                                    </h2>
-                                </div>
-                                <p tabindex="0" class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 mt-2">
-                                    {{ Str::limit($product->description, 150) }}</p>
-                                <div class="flex mt-4">
-                                    <div>
-                                        <p tabindex="0"
-                                            class="focus:outline-none text-xs text-gray-600 rounded dark:text-gray-200 px-2 bg-gray-300 dark:bg-slate-600 py-1">
-                                            {{ $product->category }}</p>
-                                    </div>
-                                    <div class="pl-2">
-                                        <p tabindex="0"
-                                            class="focus:outline-none text-xs text-gray-600 rounded dark:text-gray-200 px-2 bg-gray-300 dark:bg-slate-600 py-1">
-                                            {{ $product->bricks_amount }} Blokjes</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center justify-between py-4">
-                                    <h2 tabindex="0" class="focus:outline-none text-yellow-500 text-xs font-semibold">3
-                                        Beschikbaar</h2>
-                                    <h3 tabindex="0" class="focus:outline-none text-yellow-500 text-xl font-semibold">
-                                        €{{ $product->price }}
-                                    </h3>
-                                </div>
-                                @if ($product->sellable = 1)
-                                    <a href="{{ route('producten-show', [$product->category, $product->id]) }}"
-                                        class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-black bg-yellow-500 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                        <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round"
-                                                stroke-linejoin="round" stroke-width="2" class="w-4">
-                                                <polyline fill="none" stroke="currentColor" stroke-miterlimit="10"
-                                                    points="4,4 22,4 19,14 4,14 "></polyline>
-                                                <circle cx="4" cy="22" r="2" stroke-linejoin="miter"
-                                                    stroke-linecap="square" stroke="none" fill="currentColor"></circle>
-                                                <circle cx="20" cy="22" r="2" stroke-linejoin="miter"
-                                                    stroke-linecap="square" stroke="none" fill="currentColor"></circle>
-                                                <polyline fill="none" stroke="currentColor" stroke-miterlimit="10"
-                                                    points="1,1 4,4 4,14 2,18 23,18 "></polyline>
-                                            </svg>
-                                        </span>
-                                        Kopen
-                                    </a>
-                                @else
-                                    <a href="{{ route('producten.show', $product->id) }}"
-                                        class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                        <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                                            <svg class="h-5 w-5 text-gray-700 group-hover:text-gray-900"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                                                aria-hidden="true">
-                                                <path fill-rule="evenodd"
-                                                    d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </span>
-                                        Huren
-                                    </a>
+                    <div tabindex="0" class="focus:outline-none mx-2 mb-4 swiper-slide cursor-pointer" onclick="location.href='{{ route('producten-show', [$product->category, $product->id]) }}';">
+                        <div class="w-full max-w-sm bg-white hover:shadow-inner transition border border-slate-50 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                            <a href="#">
+                                @if ($product->images != null)
+                                    @foreach (json_decode($product->images) as $item)
+                                        @if (str_contains($item, '_thumbnail'))
+                                            <img alt="person capturing an image"
+                                                src="{{ url(env('BRICK_CENTRE_IMAGE_URL') . $item) }}"
+                                                tabindex="0"
+                                                class="focus:outline-none object-contain w-full h-44 p-1 rounded-t" />
+                                        @endif
+                                    @endforeach
                                 @endif
+                            </a>
+                            <h1 class="text-3xl px-5 mt-2 font-bold text-gray-900 dark:text-white">€{{ $product->price }}</h1>
+                            <div class="flex items-center px-5 mt-2 mb-4">
+                                <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Second star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Third star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fourth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fifth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <span class="bg-yellow-200 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-800 ml-3">5.0</span>
+                            </div>
+                            <div class="px-5 mb-4">
+                                <a href="#">
+                                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                                        {{ $product->name }}</h5>
+                                </a>
+                                <div class="flex items-center mt-2 mb-4">
+                                    <p tabindex="0"
+                                        class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 h-4">
+                                        {{ Str::limit($product->description, 40) }}</p>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <a href="#" class="col-span-1 text-white bg-yellow-400 hover:bg-yellow-500 transition focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded text-sm px-2 py-2.5 text-center dark:bg-yellow-400 dark:hover:bg-yellow-400 dark:focus:ring-yellow-400">Lees meer</a>
+                                    <a href="#" class="col-span-1 text-yellow-400 border hover:text-white border-yellow-400 hover:bg-yellow-400 transition focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded text-sm px-2 py-2.5 text-center dark:bg-yellow-400 dark:hover:bg-yellow-400 dark:focus:ring-yellow-400">In Winkelwagen</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    {{-- <a href="#"
-                        class="block rounded-lg p-4 bg-gray-100/75 swiper-slide shadow-lg shadow-indigo-900/10">
-                        <img alt="Home"
-                            src="{{ url('http://back-lego.test/storage/images/products/' . $product->image_thumbnail) }}"
-                            class="h-56 w-full rounded-md object-cover" />
 
-                        <div class="mt-2">
-                            <dl>
-                                <div>
-                                    <dt class="sr-only">Prijs</dt>
-
-                                    <dd class="text-sm text-gray-500">€{{ $product->price }} - {{ $product->available }}
-                                    </dd>
-                                </div>
-
-                                <div>
-                                    <dt class="sr-only">Naam</dt>
-
-                                    <dd class="font-medium">{{ $product->name }}</dd>
-                                </div>
-                            </dl>
-
-                            <div class="mt-4 flex items-center gap-2 text-xs">
-                                <div class="sm:inline-flex sm:shrink-0 sm:items-center">
-                                    <svg class="h-4 w-4 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
-                                    </svg>
-
-                                    <div class="mt-1.5 sm:ml-3 sm:mt-0">
-                                        <p class="text-gray-500">Steentjes</p>
-
-                                        <p class="font-medium">{{ $product->bricks_amount }}</p>
-                                    </div>
-                                </div>
-
-                                <div class="sm:inline-flex sm:shrink-0 sm:items-center">
-                                    <svg class="h-4 w-4 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                                    </svg>
-
-                                    <div class="mt-1.5 sm:ml-3 sm:mt-0">
-                                        <p class="text-gray-500">Setnummer</p>
-
-                                        <p class="font-medium">#12345</p>
-                                    </div>
-                                </div>
-
-                                <div class="sm:inline-flex sm:shrink-0 sm:items-center">
-                                    <svg class="h-4 w-4 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                                    </svg>
-
-                                    <div class="mt-1.5 sm:ml-3 sm:mt-0">
-                                        <p class="text-gray-500">Leeftijd</p>
-
-                                        <p class="font-medium">18+</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a> --}}
                 @endif
             @endforeach
         </div>
-        <!-- If we need pagination -->
         <div class="swiper-pagination"></div>
 
-        <!-- If we need navigation buttons -->
         <div class="swiper-button-prev text-gray-500 opacity-20 hover:opacity-100 ml-2"></div>
         <div class="swiper-button-next text-gray-500 opacity-20 hover:opacity-100 mr-2"></div>
     </div>
@@ -334,62 +236,48 @@
         <div class="swiper-wrapper">
             <!-- Slides -->
             @foreach ($data as $key => $product)
-                @if ($product->spotlight == 'nieuw')
-                    <div tabindex="0" class="focus:outline-none w-72 swiper-slide xl:mb-0 mb-8">
-                        <div>
-                            <img alt="person capturing an image"
-                                src="{{ url('http://back-lego.test/storage/images/products/' . $product->image_thumbnail) }}"
-                                tabindex="0" class="focus:outline-none object-cover rounded-t w-full h-44" />
-                        </div>
-                        <div class="bg-gray-100 shadow-lg rounded-b dark:bg-slate-700">
-                            <div class="p-4">
-                                <div class="flex items-center">
-                                    <h2 tabindex="0" class="focus:outline-none text-lg dark:text-white font-semibold">
-                                        {{ $product->name }}
-                                    </h2>
-                                </div>
-                                <p tabindex="0"
-                                    class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 mt-2">
-                                    {{ Str::limit($product->description, 150) }}</p>
-                                <div class="flex mt-4">
-                                    <div>
-                                        <p tabindex="0"
-                                            class="focus:outline-none text-xs text-gray-600 rounded dark:text-gray-200 px-2 bg-gray-300 dark:bg-slate-600 py-1">
-                                            {{ $product->category }}</p>
-                                    </div>
-                                    <div class="pl-2">
-                                        <p tabindex="0"
-                                            class="focus:outline-none text-xs text-gray-600 rounded dark:text-gray-200 px-2 bg-gray-300 dark:bg-slate-600 py-1">
-                                            {{ $product->bricks_amount }} Blokjes</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center justify-between py-4">
-                                    <h2 tabindex="0" class="focus:outline-none text-yellow-500 text-xs font-semibold">3
-                                        Beschikbaar</h2>
-                                    <h3 tabindex="0" class="focus:outline-none text-yellow-500 text-xl font-semibold">
-                                        €{{ $product->price }}
-                                    </h3>
-                                </div>
-                                <a href="{{ route('producten-show', [$product->category, $product->id]) }}"
-                                    class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-black bg-yellow-500 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                    <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round"
-                                            stroke-linejoin="round" stroke-width="2" class="w-4">
-                                            <polyline fill="none" stroke="currentColor" stroke-miterlimit="10"
-                                                points="4,4 22,4 19,14 4,14 "></polyline>
-                                            <circle cx="4" cy="22" r="2" stroke-linejoin="miter"
-                                                stroke-linecap="square" stroke="none" fill="currentColor"></circle>
-                                            <circle cx="20" cy="22" r="2" stroke-linejoin="miter"
-                                                stroke-linecap="square" stroke="none" fill="currentColor"></circle>
-                                            <polyline fill="none" stroke="currentColor" stroke-miterlimit="10"
-                                                points="1,1 4,4 4,14 2,18 23,18 "></polyline>
-                                        </svg>
-                                    </span>
-                                    Kopen
+                @if ($product->spotlight == 'uitgelicht')
+                    <div tabindex="0" class="focus:outline-none mb-4 swiper-slide cursor-pointer" onclick="location.href='{{ route('producten-show', [$product->category, $product->id]) }}';">
+                        <div class="w-full max-w-sm bg-white hover:shadow-inner transition border border-slate-50 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                            <a href="#">
+                                @if ($product->images != null)
+                                    @foreach (json_decode($product->images) as $item)
+                                        @if (str_contains($item, '_thumbnail'))
+                                            <img alt="person capturing an image"
+                                                src="{{ url(env('BRICK_CENTRE_IMAGE_URL') . $item) }}"
+                                                tabindex="0"
+                                                class="focus:outline-none object-contain w-full h-44 p-1 rounded-t" />
+                                        @endif
+                                    @endforeach
+                                @endif
+                            </a>
+                            <h1 class="text-3xl px-5 mt-2 font-bold text-gray-900 dark:text-white">€{{ $product->price }}</h1>
+                            <div class="flex items-center px-5 mt-2 mb-4">
+                                <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Second star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Third star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fourth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fifth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <span class="bg-yellow-200 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-800 ml-3">5.0</span>
+                            </div>
+                            <div class="px-5 mb-4">
+                                <a href="#">
+                                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                                        {{ $product->name }}</h5>
                                 </a>
+                                <div class="flex items-center mt-2 mb-4">
+                                    <p tabindex="0"
+                                        class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 h-4">
+                                        {{ Str::limit($product->description, 40) }}</p>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <a href="#" class="col-span-1 text-white bg-yellow-400 hover:bg-yellow-500 transition focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded text-sm px-2 py-2.5 text-center dark:bg-yellow-400 dark:hover:bg-yellow-400 dark:focus:ring-yellow-400">Lees meer</a>
+                                    <a href="#" class="col-span-1 text-yellow-400 border hover:text-white border-yellow-400 hover:bg-yellow-400 transition focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded text-sm px-2 py-2.5 text-center dark:bg-yellow-400 dark:hover:bg-yellow-400 dark:focus:ring-yellow-400">In Winkelwagen</a>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 @endif
             @endforeach
         </div>
@@ -411,22 +299,22 @@
                 // when window width is >= 320px
                 320: {
                     slidesPerView: 1,
-                    spaceBetween: 20
+                    spaceBetween: 10
                 },
                 // when window width is >= 480px
                 480: {
                     slidesPerView: 2,
-                    spaceBetween: 30
+                    spaceBetween: 10
                 },
                 // when window width is >= 640px
                 960: {
                     slidesPerView: 3,
-                    spaceBetween: 20
+                    spaceBetween: 10
                 },
                 // when window width is >= 640px
                 1340: {
-                    slidesPerView: 4,
-                    spaceBetween: 25
+                    slidesPerView: 3,
+                    spaceBetween: 10
                 }
             },
 
