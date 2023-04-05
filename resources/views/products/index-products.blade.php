@@ -31,20 +31,18 @@
             </span>
 
             <a href="#" class="text-gray-600 dark:text-gray-200 hover:underline capitalize">
-                {{ $categorie }}
+                {{ $categorie[0]->categorie_naam }}
             </a>
         </div>
         <section>
             <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
                 <header>
                     <h2 class="text-xl font-bold dark:text-white text-gray-900 sm:text-3xl capitalize">
-                        {{ $categorie }}
+                        {{ $categorie[0]->categorie_naam }}
                     </h2>
 
-                    <p class="max-w-md mt-4 dark:text-gray-200 text-gray-500">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
-                        praesentium cumque iure dicta incidunt est ipsam, officia dolor fugit
-                        natus?
+                    <p class="max-w-2xl mt-4 dark:text-gray-200 text-gray-500">
+                        {{ $categorie[0]->categorie_beschrijving }}
                     </p>
                 </header>
 
@@ -295,6 +293,55 @@
                         @if ($product == true)
                             <div tabindex="0" class="focus:outline-none mx-2 mb-4 cursor-pointer"
                                 onclick="location.href='{{ route('producten-show', [$product->category, $product->id]) }}';">
+                                <div
+                                    class="w-full max-w-sm bg-white hover:shadow-inner transition border border-slate-50 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                                    <a href="#">
+                                        @if ($product->images != null)
+                                            @foreach (json_decode($product->images) as $item)
+                                                @if (str_contains($item, '_thumbnail'))
+                                                    <img alt="person capturing an image"
+                                                        src="{{ url(env('BRICK_CENTRE_IMAGE_URL') . $item) }}"
+                                                        tabindex="0"
+                                                        class="focus:outline-none object-contain w-full h-44 p-1 rounded-t" />
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                    </a>
+
+                                    <div class="flex items-center px-5 mt-2 mb-4">
+                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Second star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Third star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fourth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fifth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        <span class="bg-yellow-200 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-800 ml-3">5.0</span>
+                                    </div>
+                                    <div class="px-5 mb-4">
+                                        <a href="#">
+                                            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                                                {{ $product->name }}</h5>
+                                        </a>
+                                        <div class="flex items-center mt-2 mb-4">
+                                            <p tabindex="0"
+                                                class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 h-4">
+                                                {{ Str::limit($product->description, 40) }}</p>
+                                        </div>
+                                        <div class="flex items-center justify-between">
+                                            <span
+                                                class="text-3xl font-bold text-gray-900 dark:text-white">€{{ $product->price }}</span>
+                                            <div>
+                                                <a href="#"
+                                                class="text-white bg-yellow-400 hover:bg-yellow-500 transition focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-yellow-400 dark:hover:bg-yellow-400 dark:focus:ring-yellow-400">hi</a>
+                                                <a href="#"
+                                                    class="text-white bg-yellow-400 hover:bg-yellow-500 transition focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-yellow-400 dark:hover:bg-yellow-400 dark:focus:ring-yellow-400">Winkelwagen</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{-- <div tabindex="0" class="focus:outline-none mx-2 mb-4 cursor-pointer"
+                                onclick="location.href='{{ route('producten-show', [$product->category, $product->id]) }}';">
                                 <div>
                                     @if ($product->images != null)
                                         @foreach (json_decode($product->images) as $item)
@@ -354,7 +401,7 @@
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         @endif
                     @endforeach
                 </div>

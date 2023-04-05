@@ -21,10 +21,11 @@
         Get free delivery on orders over $100</p>
     <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5" style="background-color: #FFCF00">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-            <a href="#" class="flex items-center">
-                {{-- <img src="../../../../images/logo.png" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" /> --}}
-                <span class="self-center text-lg font-semibold whitespace-nowrap dark:text-grey-800">The World of
-                    Bricks</span>
+            <a href="{{ route('home') }}" class="flex items-center">
+                <img src="{{ url('http://back-lego.test/image/logo-text.png') }}" class="mr-3 h-12 sm:h-8 lg:h-12"
+                    alt="Flowbite Logo" />
+                {{-- <span class="self-center text-lg font-semibold whitespace-nowrap dark:text-grey-800">The World of
+                    Bricks</span> --}}
             </a>
 
             <div class="flex items-center lg:order-2">

@@ -25,9 +25,14 @@ class ProductController extends Controller
     public function categorie($categorie)
     {
 
+        // dd($categorie);
         $data = Product::where('category', $categorie)->paginate(8);
 
-        $categorie = $categorie;
+        $categorie = Categorie::where('categorie_slug', $categorie)->get();
+
+        // dd($categorie);
+
+
 
         return view('products.index-products', compact('data', 'categorie'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
