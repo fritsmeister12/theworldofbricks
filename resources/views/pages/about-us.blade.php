@@ -59,8 +59,10 @@
             </div>
         </div>
     </div> --}}
+    <div class="p-36 bg-yellow-500 absolute top-0 left-0 w-full" style="background-color: #FFCF00"></div>
+
     <!-- ====== About Section Start -->
-    <section class="overflow-hidden pt-4 pb-12 lg:pb-[90px]">
+    <section class="overflow-hidden relative pb-12 lg:pb-[90px]">
         <div class="container mx-auto">
             <div class="-mx-4 flex flex-wrap items-center justify-between">
                 <div class="w-full px-4 lg:w-6/12">
@@ -251,7 +253,7 @@
                 <div class="w-full px-4 lg:w-1/2 xl:w-5/12">
                     <div class="mt-10 lg:mt-0">
                         <span class="text-gray-900 dark:text-gray-200 mb-2 block text-lg font-semibold">
-                            Why Choose Us
+                           Over ons
                         </span>
                         <h2 class="text-gray-900 dark:text-gray-100 mb-8 text-3xl font-bold sm:text-4xl">
                             Make your customers happy by giving services.

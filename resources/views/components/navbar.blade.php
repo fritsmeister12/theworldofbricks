@@ -16,9 +16,6 @@
 
 {{-- New Navbar --}}
 <header class="w-full fixed top-0 z-40">
-    <p class="h-10 flex items-center justify-center text-sm  font-light text-white px-4 sm:px-6 lg:px-8"
-        style="background-color: #201D48">
-        Get free delivery on orders over $100</p>
     <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5" style="background-color: #FFCF00">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <a href="{{ route('home') }}" class="flex items-center">

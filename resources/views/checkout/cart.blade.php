@@ -1,36 +1,36 @@
 @extends('components.master')
 @section('title', 'Product')
 @section('content')
+<div class="p-24 bg-yellow-500 absolute top-0 left-0 w-full" style="background-color: #FFCF00"></div>
     <form action="{{ route('pay') }}">
         @csrf
-        <div class="container mx-auto">
+        <div class="container relative mx-auto">
             <?php $total = 0; ?>
             <section>
-                <div class="px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
+                <div class="px-4 py-6 mx-auto sm:px-6 sm:py-6 lg:px-8">
                     <div class="max-w-5xl mx-auto">
-                        <header class="">
-                            <h1 class="text-xl font-bold text-gray-900 sm:text-3xl dark:text-white">Your Cart</h1>
+                        <header class="text-slate-800">
+                            <h1 class="text-xl font-bold sm:text-3xl dark:text-white">Mijn Winkelmandje</h1>
+                            <p>Vind hier jou items in je winkelmandje.</p>
                         </header>
 
                         <div class="mt-8">
                             <ul class="space-y-4">
                                 @if (session('cart'))
                                     @foreach (session('cart') as $id => $details)
+                                    @php
+                                        $images = json_decode($details['photo']);
+                                    @endphp
                                         <?php $total += $details['price'] * $details['quantity']; ?>
                                         <li class="flex items-center">
-                                            <img src="{{ url('http://back-lego.test/storage/images/products/' . $details['photo']) }}"
-                                                alt="" class="object-cover lg:w-24 lg:h-24 w-16 h-16 rounded" />
-
+                                            {{-- <img src="{{ url('http://back-lego.test/storage/images/products/' . $images[0]) }}"
+                                                alt="" class="object-contain lg:w-36 lg:h-36 w-24 h-24" /> --}}
+                                                
                                             <div class="ml-4">
                                                 <h3 class="text-sm text-gray-900 dark:text-white">{{ $details['name'] }}
                                                 </h3>
 
                                                 <dl class="mt-0.5 space-y-px text-[10px] text-gray-600 dark:text-gray-300">
-                                                    <div>
-                                                        {{-- <dt class="inline">{{ $details['category'] }}</dt> --}}
-                                                        <dd class="inline">XXS</dd>
-                                                    </div>
-
                                                     <div class="text-xs">
                                                         <dt class="inline">Prijs:</dt>
                                                         <dd class="inline font-bold dark:text-white">
@@ -38,13 +38,14 @@
                                                 </dl>
                                             </div>
 
+
                                             <div class="flex items-center justify-end flex-1 gap-2">
                                                 <form>
                                                     <label for="Line1Qty" class="sr-only"> Quantity </label>
 
                                                     <input type="number" min="1" value="{{ $details['quantity'] }}"
                                                         id="quantity" onkeyup="enforceMinMax(this)"
-                                                        class="h-8 w-12 quantity rounded border-gray-200 bg-gray-200 dark:bg-gray-50 p-0 text-center text-xs text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" />
+                                                        class="h-8 w-12 quantity rounded border-gray-200 border-2 bg-gray-50 dark:bg-gray-50 p-0 text-center text-xs text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" />
                                                 </form>
 
                                                 <button
@@ -74,9 +75,9 @@
                             @php
                                 $btw = ($total / 121) * 100;
                             @endphp
-                            <div class="flex justify-end pt-8 mt-8 border-t border-gray-100">
+                            <div class="flex justify-end pt-8 mt-8 border-t border-gray-200">
                                 <div
-                                    class="w-screen dark:bg-gray-600 shadow-xl bg-gray-200 rounded-lg p-6 max-w-xl space-y-4">
+                                    class="w-screen dark:bg-gray-600 shadow-xl bg-gray-50 border-2 border-gray-200 rounded-lg p-6 max-w-xl space-y-4">
                                     <dl class="space-y-0.5 text-sm text-gray-700 dark:text-white">
                                         <div class="flex justify-between">
                                             <dt>Subtotal</dt>

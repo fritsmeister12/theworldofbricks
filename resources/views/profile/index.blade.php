@@ -88,14 +88,27 @@
             </div>
         </div>
     </section> --}}
+    <div class="p-40 bg-yellow-500 absolute top-0 left-0 w-full" style="background-color: #FFCF00"></div>
+    <div class="relative rounded-2xl col-span-4 lg:h-64 h-56 w-full my-4 flex items-end justify-start text-left bg-cover bg-center"
+                style="background-image:url(https://manly.bladecdn.net/wp-content/uploads/2022/11/LEGO-Architecture-Taj-Mahal-21056-uren-bouwplezier-met-fantastich-resultaat.jpg);">
+                <div
+                    class="absolute rounded-b-2xl top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900">
+                </div>
+
+                <main class="p-5 z-10">
+                    <h1 class="text-3xl font-semibold text-white lg:text-4xl">Mijn Profiel
+                    </h1>
+                    <p class="mt-2 text-gray-300">Bekijk hier jou gegevens en je recente bestellingen.</p>
+                </main>
+    </div>
     <div class="w-full
         mx-auto py-12">
         <div class="flex flex-wrap -mx-3">
 
 
-            <div class="w-full max-w-full px-3 shrink-0 md:w-8/12 md:flex-0">
+            <div class="w-full max-w-full px-3 shrink-0 md:w-4/12 lg:1/3 md:flex-0">
                 <div
-                    class="relative flex flex-col min-w-0 break-words bg-white dark:bg-slate-700 border-0 shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
+                    class="relative flex flex-col min-w-0 break-words bg-gray-50 rounded-2xl shadow-xl dark:bg-slate-700 border-2 border-gray-200 dark:bg-slate-850 bg-clip-border">
                     <div class="border-black/12.5 rounded-t-2xl border-b-0 border-solid py-4 px-6 pb-0">
                         <div class="flex items-center">
                             <p class="mb-0 dark:text-white/80">Klant Gegevens</p>
@@ -108,7 +121,7 @@
                             Informatie</p>
                         <div class="flex flex-wrap -mx-3">
 
-                            <div class="w-full max-w-full px-3 shrink-0 md:w-1/3 md:flex-0">
+                            <div class="w-full max-w-full px-3 shrink-0 md:flex-0">
                                 <div class="mb-4">
                                     <label for="first name"
                                         class="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Naam</label>
@@ -116,7 +129,7 @@
                                         class="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm dark:bg-slate-600 leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-yellow-500 focus:outline-none" />
                                 </div>
                             </div>
-                            <div class="w-full max-w-full px-3 shrink-0 md:w-1/3 md:flex-0">
+                            <div class="w-full max-w-full px-3 shrink-0 md:flex-0">
                                 <div class="mb-4">
                                     <label for="email"
                                         class="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Email
@@ -125,7 +138,7 @@
                                         class="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white dark:bg-slate-600 text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-yellow-500 focus:outline-none" />
                                 </div>
                             </div>
-                            <div class="w-full max-w-full px-3 shrink-0 md:w-1/3 md:flex-0">
+                            <div class="w-full max-w-full px-3 shrink-0 md:flex-0">
                                 <div class="mb-4">
                                     <label for="last name"
                                         class="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Telefoonnummer</label>
@@ -173,39 +186,45 @@
                     </div>
                 </div>
             </div>
-            <div class="w-full max-w-full px-3 lg:w-1/3 lg:flex-none">
+            <div class="w-full max-w-full px-3 lg:w-2/3 md:8/12 lg:flex-none">
                 <div
-                    class="relative flex flex-col pb-2 h-content min-w-0 break-words bg-white dark:bg-slate-700 border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
+                    class="relative flex flex-col pb-2 h-content min-w-0 break-words bg-gray-50 shadow-xl dark:bg-slate-700 border-2 border-gray-200 border-solid dark:bg-slate-850 rounded-2xl bg-clip-border">
                     <div class="p-4 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
                         <div class="flex flex-wrap -mx-3">
                             <div class="flex items-center flex-none w-1/2 max-w-full px-3">
-                                <h6 class="mb-0 dark:text-white">Producten</h6>
+                                <h6 class="mb-0 dark:text-white">Orders</h6>
                             </div>
                             <div class="flex-none w-1/2 max-w-full px-3 text-right">
                                 <p
                                     class="inline-block px-8 py-2 mb-0 text-xs font-bold leading-normal text-center text-yellow-500 align-middle transition-all ease-in bg-transparent border border-yellow-500 border-solid rounded-lg shadow-none cursor-default bg-150 active:opacity-85 hover:-translate-y-px tracking-tight-rem bg-x-25 hover:opacity-75">
-                                    2
-                                    Items</p>
+                                    {{ Count($orders) }}
+                                    Orders</p>
                             </div>
                         </div>
                     </div>
                     <div class="flex-auto p-4 pb-0">
                         <ul class="flex flex-col pl-0 mb-0 rounded-lg">
-                            <li
-                                class="relative flex justify-between px-4 py-2 pl-0 mb-2 border-0 rounded-t-inherit text-inherit rounded-xl">
-                                <div class="flex flex-col">
-                                    <h6 class="mb-1 text-sm font-semibold leading-normal dark:text-white text-slate-700">
-                                        Racing Stuur</h6>
-                                    <span class="text-xs leading-tight dark:text-white dark:opacity-80">Aantal:
-                                        10x</span>
-                                </div>
-                                <div class="flex items-center text-sm leading-normal dark:text-white/80">
-                                    €120
-                                    <button
-                                        class="dark:text-white inline-block px-0 py-2.5 mb-0 ml-6 font-bold leading-normal text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-in bg-150 text-xs active:opacity-85 hover:-translate-y-px tracking-tight-rem bg-x-25 text-slate-700">
-                                        <i class="fas fa-link mr-1"></i>Bekijk</button>
-                                </div>
-                            </li>
+                            @foreach ($orders as $order)
+                                <li
+                                    class="relative flex justify-between px-4 py-2 pl-0 mb-2 border-0 rounded-t-inherit text-inherit rounded-xl">
+                                    <div class="flex flex-col">
+                                        <h6 class="mb-1 text-sm font-semibold leading-normal dark:text-white text-slate-700">
+                                            {{ $order->product_name }}</h6>
+                                        <span class="text-xs leading-tight dark:text-white dark:opacity-80">
+                                            @if ($order->status == 'succeeded')
+                                                <span class="text-emerald-500">Afgerond</span>
+                                            @elseif ($order->status == 'pending')
+                                                <span class="text-orange-500">Bezig</span>
+                                            @endif</span>
+                                    </div>
+                                    <div class="flex items-center text-sm leading-normal dark:text-white/80">
+                                        €{{ $order->amount / 100 }}
+                                        <a href="{{ $order->receipt_url }}"
+                                            class="dark:text-white inline-block px-0 py-2.5 mb-0 ml-6 font-bold leading-normal text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-in bg-150 text-xs active:opacity-85 hover:-translate-y-px tracking-tight-rem bg-x-25 text-slate-700">
+                                            <i class="fas fa-link mr-1"></i>Bekijk</a>
+                                    </div>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

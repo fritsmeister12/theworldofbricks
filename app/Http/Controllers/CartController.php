@@ -30,7 +30,7 @@ class CartController extends Controller
                     "price" => $product->price,
                     "price_id" => $product->price_id,
                     "prod_id" => $product->prod_id,
-                    "photo" => $product->image_thumbnail
+                    "photo" => $product->images
                 ]
             ];
 
