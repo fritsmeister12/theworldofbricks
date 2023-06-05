@@ -202,33 +202,37 @@
         </div>
       </div>
       <div class="space-y-2 text-sm">
-        <p class="text-base font-bold tracking-wide text-white">Contacts</p>
-        <div class="flex">
-          <p class="mr-1 text-white font-medium">Phone:</p>
-          <a href="tel:850-123-5021" aria-label="Our phone" title="Our phone" class="transition-colors duration-300 text-white/50 hover:text-white/75">850-123-5021</a>
-        </div>
+        <p class="text-base font-bold tracking-wide text-white">Contact</p>
         <div class="flex">
           <p class="mr-1 text-white font-medium">Email:</p>
-          <a href="mailto:info@lorem.mail" aria-label="Our email" title="Our email" class="transition-colors duration-300 text-white/50 hover:text-white/75">info@lorem.mail</a>
+          <a href="mailto:info@lorem.mail" aria-label="Ons email" title="Ons email" class="transition-colors duration-300 text-white/50 hover:text-yellow-400/75">info@theworldofbricks.nl</a>
         </div>
         <div class="flex">
-          <p class="mr-1 text-white font-medium">Address:</p>
-          <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" aria-label="Our address" title="Our address" class="transition-colors duration-300 text-white/50 hover:text-white/75">
-            312 Lovely Street, NY
+          <p class="mr-1 text-white font-medium">Adres:</p>
+          <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" aria-label="Ons adres" title="Ons adres" class="transition-colors duration-300 text-white/50 hover:text-yellow-400/75">
+            De Brinio 30, 3224GE 
           </a>
+        </div>
+        <div class="flex">
+            <p class="mr-1 text-white font-medium">KVK:</p>
+            <a href="tel:850-123-5021" aria-label="Onze KVK nummer" title="Onze KVK nummer" class="transition-colors duration-300 text-white/50 hover:text-yellow-400/75">65610547</a>
+        </div>
+        <div class="flex">
+            <p class="mr-1 text-white font-medium">BTW:</p>
+            <a href="tel:850-123-5021" aria-label="Onze BTW nummer" title="Onze BTW nummer" class="transition-colors duration-300 text-white/50 hover:text-yellow-400/75">NL002362559B24</a>
         </div>
       </div>
       <div>
         <span class="text-base font-bold tracking-wide text-white">Social</span>
         <div class="flex items-center mt-1 space-x-3">
-          <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400">
+          <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-yellow-400/75">
             <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
               <path
                 d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z"
               ></path>
             </svg>
           </a>
-          <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400">
+          <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-yellow-400/75">
             <svg viewBox="0 0 30 30" fill="currentColor" class="h-6">
               <circle cx="15" cy="15" r="4"></circle>
               <path
@@ -236,7 +240,7 @@
               ></path>
             </svg>
           </a>
-          <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400">
+          <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-yellow-400/75">
             <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
               <path
                 d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z"
@@ -249,164 +253,21 @@
         </p>
       </div>
     </div>
-    <div class="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
-      <p class="text-sm text-gray-600">
+    <div class="flex flex-col-reverse justify-between pt-5 pb-10 border-t border-yellow-400/75 lg:flex-row">
+      <p class="text-sm text-gray-500">
         © Copyright 2023 The World Of Bricks All rights reserved.
       </p>
       <ul class="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
         <li>
-          <a href="/" class="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">F.A.Q</a>
+          <a href="/" class="text-sm text-gray-500 transition-colors duration-300 hover:text-yellow-400/75">F.A.Q</a>
         </li>
         <li>
-          <a href="/" class="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">Privacy Policy</a>
+          <a href="/" class="text-sm text-gray-500 transition-colors duration-300 hover:text-yellow-400/75">Privacy Policy</a>
         </li>
         <li>
-          <a href="/" class="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">Terms &amp; Conditions</a>
+          <a href="/" class="text-sm text-gray-500 transition-colors duration-300 hover:text-yellow-400/75">Terms &amp; Conditions</a>
         </li>
       </ul>
     </div>
 </div>
 </footer>
-
-{{-- <footer aria-label="Site Footer" class="bg-purple-900 bg-gray-900" style="background-color: #201d48">
-    <div class="mx-auto max-w-screen-xl px-4 pt-16 pb-6 sm:px-6 lg:px-8 lg:pt-24">
-        <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
-            <div>
-                <div class="flex justify-center text-yellow-400 sm:justify-start">
-                    <img src="{{ url('http://back-lego.test/image/logo-text.png') }}" class=" h-20"
-                        alt="The World of Bricks logo met text">
-                </div>
-
-                <ul class="mt-8 flex justify-center gap-6 sm:justify-start md:gap-8">
-                    <li>
-                        <a href="/" rel="noreferrer" target="_blank"
-                            class="text-yellow-400 transition hover:text-yellow-400/75">
-                            <span class="sr-only">Facebook</span>
-                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="/" rel="noreferrer" target="_blank"
-                            class="text-yellow-400 transition hover:text-yellow-400/75">
-                            <span class="sr-only">Instagram</span>
-                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2">
-                <div class="text-center sm:text-left">
-                    <p class="text-lg font-medium text-gray-200 text-white">
-                        Links
-                    </p>
-
-                    <nav aria-label="Footer About Nav" class="mt-8">
-                        <ul class="space-y-4 text-sm">
-                            <li>
-                                <a class="transition text-gray-300 hover:text-white/75" href="/">
-                                    Producten
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="transition text-gray-300 hover:text-white/75" href="/">
-                                    Onderdelen
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="transition text-gray-300 hover:text-white/75" href="/">
-                                    Over Ons
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-
-                <div class="text-center sm:text-left">
-                    <p class="text-lg font-medium  text-white">
-                        Contact Us
-                    </p>
-
-                    <ul class="mt-8 space-y-4 text-sm">
-                        <li>
-                            <a class="flex items-center justify-center gap-1.5 sm:justify-start" href="/">
-                                <i class="fas fa-paper-plane h-5 w-5 text-yellow-400 shrink-0"></i>
-
-                                <span class="text-gray-300">
-                                    info@theworldofbricks.com
-                                </span>
-                            </a>
-                        </li>
-
-                        <li class="flex items-start justify-center gap-1.5 sm:justify-start">
-                            <i class="fas fa-map-pin h-5 w-5 text-yellow-400 shrink-0"></i>
-                            <address class="-mt-0.5 not-italic text-gray-300">
-                                De Brinio 30, 3224GE, Hellevoetsluis
-                            </address>
-                        </li>
-                    </ul>
-                </div>
-                <div class="text-center sm:text-left">
-                    <p class="text-lg font-medium text-white">
-                        Bedrijfs Informatie
-                    </p>
-
-                    <ul class="mt-8 space-y-4 text-sm">
-                        <li>
-                            <a class="flex items-center justify-center gap-1.5 sm:justify-start" href="/">
-                                <i class="fas fa-balance-scale-right h-5 w-5 shrink-0 text-yellow-400"></i>
-
-                                <span class="text-gray-300">KVK: 65610547</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a class="flex items-center justify-center gap-1.5 sm:justify-start" href="/">
-                                <i class="fas fa-file-contract h-5 w-5 text-yellow-400 shrink-0"></i>
-
-                                <span class="text-gray-300">BTW: NL002362559B24</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="mt-12 border-t border-gray-100 pt-6 border-gray-700">
-            <div class="text-center sm:flex sm:justify-between sm:text-left">
-                <p class="text-sm text-gray-500 text-gray-400">
-                    <span class="block sm:inline">All rights reserved.</span>
-
-                    <a class="inline-block text-yellow-400 underline transition hover:text-yellow-400/75"
-                        href="/">
-                        Terms & Conditions
-                    </a>
-
-                   
-                </p>
-
-                <p class="mt-4 text-sm text-gray-500 text-gray-400 sm:order-first sm:mt-0">
-                    &copy; 2023 The World Of Bricks
-                </p>
-            </div>
-        </div>
-    </div>
-</footer> --}}
-
- {{-- <span>&middot;</span>
-
-                    <a class="inline-block text-teal-600 underline transition hover:text-teal-600/75 text-teal-500 hover:text-teal-500/75"
-                        href="/">
-                        Privacy Policy
-                    </a> --}}
